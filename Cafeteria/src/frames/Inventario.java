@@ -45,19 +45,22 @@ public class Inventario extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 90, 110, -1));
 
-        jLabelPrecio.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPrecio.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabelPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelPrecio.setText("Precio :");
-        getContentPane().add(jLabelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, -1, -1));
+        getContentPane().add(jLabelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 90, 80, -1));
         getContentPane().add(jTextFieldCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 60, 110, -1));
 
-        jLabelCantidad.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelCantidad.setText("Cantidad:");
-        getContentPane().add(jLabelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, -1, -1));
+        jLabelCantidad.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabelCantidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelCantidad.setText("Cantidad :");
+        getContentPane().add(jLabelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, 90, -1));
         getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 30, 110, -1));
 
-        jLabelNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombre.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabelNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelNombre.setText("Nombre :");
-        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, -1, -1));
+        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, 90, -1));
 
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/error3.png"))); // NOI18N
         jButtonCancelar.setBorderPainted(false);
@@ -92,10 +95,7 @@ public class Inventario extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Id", "Nombre", "Cantidad", "Precio"
@@ -105,8 +105,8 @@ public class Inventario extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 550, 170));
 
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Fondo2.jpeg"))); // NOI18N
-        jLabelFondo.setText("jLabel1");
+        jLabelFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/FondoAzul.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 300));
 
         pack();

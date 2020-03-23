@@ -5,20 +5,41 @@
  */
 package frames;
 
+import Seguridad.Usuario;
+import java.sql.ResultSet;
+import java.sql.Connection;
+import javax.swing.ImageIcon;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author donald
  */
 public class menu extends javax.swing.JFrame {
+    private static Usuario user;//variable global del usuario 
 
     /**
      * Creates new form menu
      */
     public menu() {
         initComponents();
+        this.user=user;
         this.setLocationRelativeTo(null);
     }
-
+    public menu(Usuario user){
+        initComponents();
+        this.user=user;//Se asigna el usuaario que hizo login
+        this.setLocationRelativeTo(null);
+    }
+    public void seguridad(){
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -106,7 +127,8 @@ public class menu extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 70, 60));
 
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Fondo2.jpeg"))); // NOI18N
+        jLabelFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/FondoAzul.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 300));
 
         pack();
@@ -192,4 +214,5 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JButton jButtonVenta;
     private javax.swing.JLabel jLabelFondo;
     // End of variables declaration//GEN-END:variables
+
 }
