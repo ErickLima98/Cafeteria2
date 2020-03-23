@@ -5,12 +5,18 @@
  */
 package frames;
 
+import javax.swing.JOptionPane;
+import Seguridad.Login;
+import Seguridad.ManejoUsuarios;
+import Seguridad.Usuario;
 /**
  *
  * @author USUARIO
  */
 public class RestaurarContraseña extends javax.swing.JFrame {
-
+private menu menu;
+private Login login;
+private Usuario user;
     /**
      * Creates new form RestaurarContraseña
      */
