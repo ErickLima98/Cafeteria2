@@ -5,17 +5,25 @@
  */
 package frames;
 
+import javax.swing.JOptionPane;
+import Seguridad.Login;
+import Seguridad.ManejoUsuarios;
+import Seguridad.Usuario;
 /**
  *
  * @author USUARIO
  */
 public class RestaurarContraseña extends javax.swing.JFrame {
-
+private menu menu;
+private Login login;
+private Usuario user;
     /**
      * Creates new form RestaurarContraseña
      */
     public RestaurarContraseña() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        login = new Login();
     }
 
     /**
@@ -68,6 +76,11 @@ public class RestaurarContraseña extends javax.swing.JFrame {
         getContentPane().add(jTextFieldNombreUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 160, -1));
 
         jButtonRestaurar.setText("Restaurar");
+        jButtonRestaurar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRestaurarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonRestaurar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, -1, -1));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -80,6 +93,41 @@ public class RestaurarContraseña extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonRestaurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRestaurarActionPerformed
+        int logi = login.login(jTextFieldNombreUsuario1.getText(),jPasswordFieldContraseña.getText() );
+        switch(logi){
+            case 1:
+                user = login.getUsuario(jTextFieldNombreUsuario1.getText());
+                ManejoUsuarios manejador = new ManejoUsuarios();
+                int restaurar = manejador.ResestPass(jTextFieldNombreUsuario2.getText(),jPasswordField1.getText(),user.getUserId());
+                switch(restaurar){
+                    case -1:
+                        JOptionPane.showMessageDialog(this,"Se necesita que un adminitrador restaure su clave","ERROR",JOptionPane.ERROR_MESSAGE);
+                        break;
+                    case 0:
+                        JOptionPane.showMessageDialog(this,"El usuario que solicita restaurar contraseña no existe","ERROR",JOptionPane.ERROR_MESSAGE);
+                        break;
+                    case 1:
+                        JOptionPane.showMessageDialog(this,"Se ha restaurado correctamente la constraseña","INFORMACION",JOptionPane.INFORMATION_MESSAGE);
+                        this.dispose();
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(this,"ERROR Inesperado","ERROR",JOptionPane.ERROR_MESSAGE);
+                        break;
+                }
+                break;
+            case 0:
+                JOptionPane.showMessageDialog(this,"Contraseña de Administrador incorrecta","ERROR",JOptionPane.ERROR_MESSAGE);
+                break;
+            case -1:
+                JOptionPane.showMessageDialog(this,"Usuario Administradorincorrecto","ERROR",JOptionPane.ERROR_MESSAGE);
+                break;
+            default:
+                JOptionPane.showMessageDialog(this,"Error Inesperado","ERROR",JOptionPane.ERROR_MESSAGE);
+                break;
+        }
+    }//GEN-LAST:event_jButtonRestaurarActionPerformed
 
     /**
      * @param args the command line arguments

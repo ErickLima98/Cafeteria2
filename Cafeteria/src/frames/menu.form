@@ -148,8 +148,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelFondo">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Imagen/Fondo2.jpeg"/>
+          <Image iconType="3" name="/Imagen/FondoAzul.jpg"/>
         </Property>
       </Properties>
       <Constraints>
