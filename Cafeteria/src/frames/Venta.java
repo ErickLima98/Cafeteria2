@@ -22,8 +22,7 @@ public class Venta extends javax.swing.JFrame {
      */
     public Venta() {
         initComponents();
-        ConexionBD con = new ConexionBD();
-         Connection conexion = con.Conectar();
+        
          
     }
     /**

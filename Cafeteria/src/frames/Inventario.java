@@ -5,19 +5,54 @@
  */
 package frames;
 
+import conexiones.conexion;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author donald
  */
 public class Inventario extends javax.swing.JFrame {
-
+    private DefaultTableModel modelo;
     /**
      * Creates new form Inventario
      */
     public Inventario() {
         initComponents();
+        tabla();
     }
-
+    public void tabla(){//aqui cargo la tabla que se crea a partir del inventario
+        conexion con = new conexion();
+        Connection conexion = con.conectar(); 
+        String sql = "SELECT * FROM inventario";//consulta sql 
+        Statement st;
+        modelo = new DefaultTableModel();
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Existencias");
+        modelo.addColumn("Precio Venta");    
+        jTable1.setModel(modelo);   
+        String[] dato = new String[4];
+        try{
+            st = conexion.createStatement();   
+            ResultSet result = st.executeQuery(sql); 
+            while(result.next()){
+                dato[0] = result.getString(1);
+                dato[1] = result.getString(2);
+                dato[2] = result.getString(3);
+                dato[3] = result.getString(4);
+                modelo.addRow(dato);//voy agregando los datos en la tabla
+            }   
+        } catch (SQLException ex) {
+            Logger.getLogger(Inventario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    } 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -92,13 +127,13 @@ public class Inventario extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Id", "Nombre", "Cantidad", "Precio"
+
             }
         ));
         jScrollPane1.setViewportView(jTable1);
