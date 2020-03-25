@@ -21,6 +21,7 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
+        this.setLocationRelativeTo(null);
         login=new Login();
     }
 
@@ -50,7 +51,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabelContraseña.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabelContraseña.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelContraseña.setText("Contraseña :");
-        getContentPane().add(jLabelContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+        getContentPane().add(jLabelContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
         getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 190, -1));
 
         jLabelUsuario.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -82,7 +83,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jLabelFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/FondoAzul.jpg"))); // NOI18N
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 410));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
