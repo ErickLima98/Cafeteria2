@@ -5,10 +5,17 @@
  */
 package frames;
 
+<<<<<<< Updated upstream
 import Seguridad.Usuario;
 import java.sql.ResultSet;
 import java.sql.Connection;
 import javax.swing.ImageIcon;
+=======
+import java.sql.ResultSet;
+import java.sql.Connection;
+import javax.swing.ImageIcon;
+import Seguridad.Usuario;
+>>>>>>> Stashed changes
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,8 +28,12 @@ import java.util.logging.Logger;
  * @author donald
  */
 public class menu extends javax.swing.JFrame {
+<<<<<<< Updated upstream
     private static Usuario user;//variable global del usuario 
 
+=======
+private static Usuario user;//variable global del usuario logeado
+>>>>>>> Stashed changes
     /**
      * Creates new form menu
      */
@@ -31,6 +42,7 @@ public class menu extends javax.swing.JFrame {
         this.user=user;
         this.setLocationRelativeTo(null);
     }
+<<<<<<< Updated upstream
     public menu(Usuario user){
         initComponents();
         this.user=user;//Se asigna el usuaario que hizo login
@@ -40,6 +52,37 @@ public class menu extends javax.swing.JFrame {
         
     }
     
+=======
+    
+    public menu(Usuario user) {//metodo constructor que recibe el usuario logeados
+        initComponents();
+        this.user=user;//Se asigna el usuaario que hizo login
+        this.setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/índice.png")).getImage());
+        
+    }
+
+    
+     public void seguridad(){
+        System.out.println("nivel de acceso: "+user.getNivelAcceso());
+        if(user.getNivelAcceso()==1){
+            jButtonAnadirUsuario.setVisible(true);
+            jButtonCliente.setVisible(true);
+            jButtonInventario.setVisible(true);
+            jButtonMenu.setVisible(true);
+            jButtonUsuarios.setVisible(true);
+            jButtonVenta.setVisible(true);
+        }else if(user.getNivelAcceso()==2){
+            jButtonAnadirUsuario.setVisible(true);
+            jButtonCliente.setVisible(true);
+            jButtonInventario.setVisible(true);
+            jButtonMenu.setVisible(true);
+            jButtonUsuarios.setVisible(true);
+            jButtonVenta.setVisible(true);       
+        }
+    }
+
+>>>>>>> Stashed changes
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
