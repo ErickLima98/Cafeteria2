@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Versión del servidor:         10.4.11-MariaDB - mariadb.org binary distribution
--- SO del servidor:              Win64
--- HeidiSQL Versión:             10.2.0.5599
+-- Server version:               10.3.13-MariaDB - mariadb.org binary distribution
+-- Server OS:                    Win64
+-- HeidiSQL Version:             10.3.0.5771
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -12,13 +12,23 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 
--- Volcando estructura de base de datos para panaderia
-DROP DATABASE IF EXISTS `panaderia`;
-CREATE DATABASE IF NOT EXISTS `panaderia` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `panaderia`;
+-- Dumping database structure for cafeteria
+CREATE DATABASE IF NOT EXISTS `cafeteria` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `cafeteria`;
 
--- Volcando estructura para tabla panaderia.cliente
-DROP TABLE IF EXISTS `cliente`;
+-- Dumping structure for table cafeteria.acceso
+CREATE TABLE IF NOT EXISTS `acceso` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(45) NOT NULL,
+  `Codigo` tinyint(2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table cafeteria.acceso: ~0 rows (approximately)
+/*!40000 ALTER TABLE `acceso` DISABLE KEYS */;
+/*!40000 ALTER TABLE `acceso` ENABLE KEYS */;
+
+-- Dumping structure for table cafeteria.cliente
 CREATE TABLE IF NOT EXISTS `cliente` (
   `idCliente` int(11) NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(200) DEFAULT NULL,
@@ -28,30 +38,24 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   PRIMARY KEY (`idCliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla panaderia.cliente: ~0 rows (aproximadamente)
-DELETE FROM `cliente`;
+-- Dumping data for table cafeteria.cliente: ~0 rows (approximately)
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 
--- Volcando estructura para tabla panaderia.inventario
-DROP TABLE IF EXISTS `inventario`;
+-- Dumping structure for table cafeteria.inventario
 CREATE TABLE IF NOT EXISTS `inventario` (
   `idInventario` int(11) NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(200) DEFAULT NULL,
   `Existencias` int(11) DEFAULT NULL,
   `Precio_venta` float DEFAULT NULL,
   PRIMARY KEY (`idInventario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla panaderia.inventario: ~0 rows (aproximadamente)
-DELETE FROM `inventario`;
+-- Dumping data for table cafeteria.inventario: ~0 rows (approximately)
 /*!40000 ALTER TABLE `inventario` DISABLE KEYS */;
-INSERT INTO `inventario` (`idInventario`, `Nombre`, `Existencias`, `Precio_venta`) VALUES
-	(1, 'Mantequilla', 5, 20);
 /*!40000 ALTER TABLE `inventario` ENABLE KEYS */;
 
--- Volcando estructura para tabla panaderia.menu
-DROP TABLE IF EXISTS `menu`;
+-- Dumping structure for table cafeteria.menu
 CREATE TABLE IF NOT EXISTS `menu` (
   `idArticulosVendidos` int(11) NOT NULL AUTO_INCREMENT,
   `Cantidad` int(11) DEFAULT NULL,
@@ -62,49 +66,42 @@ CREATE TABLE IF NOT EXISTS `menu` (
   CONSTRAINT `fk_Articulos_vendidos_Inventario1` FOREIGN KEY (`Inventario_idInventario`) REFERENCES `inventario` (`idInventario`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla panaderia.menu: ~0 rows (aproximadamente)
-DELETE FROM `menu`;
+-- Dumping data for table cafeteria.menu: ~0 rows (approximately)
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 
--- Volcando estructura para tabla panaderia.menu_venta
-DROP TABLE IF EXISTS `menu_venta`;
+-- Dumping structure for table cafeteria.menu_venta
 CREATE TABLE IF NOT EXISTS `menu_venta` (
+  `Id_Menu` int(11) NOT NULL AUTO_INCREMENT,
   `Venta_idVenta` int(11) NOT NULL,
   `Menu_idArticulosVendidos` int(11) NOT NULL,
-  PRIMARY KEY (`Venta_idVenta`,`Menu_idArticulosVendidos`),
+  PRIMARY KEY (`Id_Menu`),
   KEY `fk_Venta_has_Menu_Menu1_idx` (`Menu_idArticulosVendidos`),
   KEY `fk_Venta_has_Menu_Venta1_idx` (`Venta_idVenta`),
   CONSTRAINT `fk_Venta_has_Menu_Menu1` FOREIGN KEY (`Menu_idArticulosVendidos`) REFERENCES `menu` (`idArticulosVendidos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Venta_has_Menu_Venta1` FOREIGN KEY (`Venta_idVenta`) REFERENCES `venta` (`idVenta`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla panaderia.menu_venta: ~0 rows (aproximadamente)
-DELETE FROM `menu_venta`;
+-- Dumping data for table cafeteria.menu_venta: ~0 rows (approximately)
 /*!40000 ALTER TABLE `menu_venta` DISABLE KEYS */;
 /*!40000 ALTER TABLE `menu_venta` ENABLE KEYS */;
 
--- Volcando estructura para tabla panaderia.usuario
-DROP TABLE IF EXISTS `usuario`;
+-- Dumping structure for table cafeteria.usuario
 CREATE TABLE IF NOT EXISTS `usuario` (
   `idUsuario` int(11) NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(200) NOT NULL,
   `Correo` varchar(200) DEFAULT NULL,
-  `Telefono` varchar(8) NOT NULL,
+  `Telefono` varchar(8) DEFAULT NULL,
   `Nivel_acceso` int(11) NOT NULL,
   `Password` varchar(255) NOT NULL,
   PRIMARY KEY (`idUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla panaderia.usuario: ~0 rows (aproximadamente)
-DELETE FROM `usuario`;
+-- Dumping data for table cafeteria.usuario: ~0 rows (approximately)
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` (`idUsuario`, `Nombre`, `Correo`, `Telefono`, `Nivel_acceso`, `Password`) VALUES
-	(1, 'Jose', 'algo', '123', 1, '12');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 
--- Volcando estructura para tabla panaderia.venta
-DROP TABLE IF EXISTS `venta`;
+-- Dumping structure for table cafeteria.venta
 CREATE TABLE IF NOT EXISTS `venta` (
   `idVenta` int(11) NOT NULL AUTO_INCREMENT,
   `Fecha` datetime DEFAULT NULL,
@@ -118,8 +115,7 @@ CREATE TABLE IF NOT EXISTS `venta` (
   CONSTRAINT `fk_Venta_Usuario1` FOREIGN KEY (`Usuario_idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla panaderia.venta: ~0 rows (aproximadamente)
-DELETE FROM `venta`;
+-- Dumping data for table cafeteria.venta: ~0 rows (approximately)
 /*!40000 ALTER TABLE `venta` DISABLE KEYS */;
 /*!40000 ALTER TABLE `venta` ENABLE KEYS */;
 

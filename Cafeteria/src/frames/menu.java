@@ -135,7 +135,7 @@ public class menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInventarioActionPerformed
-        Inventario in = new Inventario();
+        Inventario in = new Inventario(user);
         this.setVisible(false);
         in.setVisible(true);
     }//GEN-LAST:event_jButtonInventarioActionPerformed
@@ -153,15 +153,15 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonClienteActionPerformed
 
     private void jButtonAnadirUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnadirUsuarioActionPerformed
-        AnadirUsuario user = new AnadirUsuario();
+        AnadirUsuario usuar = new AnadirUsuario();
         this.setVisible(false);
-        user.setVisible(true);
+        usuar.setVisible(true);
     }//GEN-LAST:event_jButtonAnadirUsuarioActionPerformed
 
     private void jButtonUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUsuariosActionPerformed
-        Usuarios user = new Usuarios();
+        Usuarios usuar = new Usuarios();
         this.setVisible(false);
-        user.setVisible(true);
+        usuar.setVisible(true);
     }//GEN-LAST:event_jButtonUsuariosActionPerformed
 
     private void jButtonVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVentaActionPerformed
@@ -196,11 +196,12 @@ public class menu extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new menu().setVisible(true);
+                new menu(user).setVisible(true);
             }
         });
     }

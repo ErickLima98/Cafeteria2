@@ -5,17 +5,76 @@
  */
 package frames;
 
+import Seguridad.Usuario;
+import Seguridad.Conexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author donald
  */
 public class Inventario extends javax.swing.JFrame {
-
+    private static Usuario user;//variable global del usuario logead
     /**
      * Creates new form Inventario
      */
-    public Inventario() {
+    public Inventario(Usuario user) {
+        this.user = user;
+        this.setLocation(null);
         initComponents();
+        this.setLocale(null);
+    }
+
+    Inventario() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    private int Validad(){
+        if(jTextFieldNombre.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null,"Llenar Todos Los campos","ERROR",JOptionPane.ERROR_MESSAGE);
+            return 1;
+        }
+        else if(jTextFieldCantidad.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null,"Llenar Todos Los campos","ERROR",JOptionPane.ERROR_MESSAGE);
+            return 1;
+        }
+        else if(jTextFieldPrecio.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null,"Llenar Todos Los campos","ERROR",JOptionPane.ERROR_MESSAGE);
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    
+    private void mostrardatos(String valor){
+        try {
+            Connection cn = Conexion.conectar();
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            String sql="";
+            Object[]tabla = new Object[4];
+            Statement st = cn.createStatement();
+            ResultSet rs =st.executeQuery(sql);
+            while (rs.next())
+            {
+               tabla[0]=rs.getString(1);
+               tabla[1]=rs.getString(2);
+               tabla[2]=rs.getString(3);
+               tabla[3]=rs.getString(4);
+               model.addRow(tabla);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"ERROR" +ex);
+        }
     }
 
     /**
@@ -34,7 +93,7 @@ public class Inventario extends javax.swing.JFrame {
         jTextFieldNombre = new javax.swing.JTextField();
         jLabelNombre = new javax.swing.JLabel();
         jButtonCancelar = new javax.swing.JButton();
-        jButtonAceptar = new javax.swing.JButton();
+        jButtonInsertar = new javax.swing.JButton();
         jButtonMenu = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -73,15 +132,15 @@ public class Inventario extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 120, 40, 40));
 
-        jButtonAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/check2.png"))); // NOI18N
-        jButtonAceptar.setBorderPainted(false);
-        jButtonAceptar.setContentAreaFilled(false);
-        jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonInsertar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/check2.png"))); // NOI18N
+        jButtonInsertar.setBorderPainted(false);
+        jButtonInsertar.setContentAreaFilled(false);
+        jButtonInsertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAceptarActionPerformed(evt);
+                jButtonInsertarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 120, 40, 40));
+        getContentPane().add(jButtonInsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 120, 40, 40));
 
         jButtonMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Login2.png"))); // NOI18N
         jButtonMenu.setBorderPainted(false);
@@ -112,9 +171,39 @@ public class Inventario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonAceptarActionPerformed
+    private void jButtonInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertarActionPerformed
+        try {
+            Connection cn = Conexion.conectar();
+            {
+                if(Validad()==0)
+                {
+                    PreparedStatement pst = cn.prepareStatement("INSERT INTO");
+                    pst.setString(1,jTextFieldNombre.getText());
+                    pst.setString(2,jTextFieldCantidad.getText());
+                    pst.setDouble(3,Double.parseDouble(jTextFieldPrecio.getText()));
+                    int a = pst.executeUpdate();
+                    if(a>0)
+                    {
+                        JOptionPane.showMessageDialog(null,"Registro Exitoso");
+                        mostrardatos("");
+                        jTextFieldNombre.setText(null);
+                        jTextFieldCantidad.setText(null);
+                        jTextFieldPrecio.setText(null);
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null,"Error al agregar");
+                    }
+                }//Fin del if
+                else
+                {
+                    JOptionPane.showMessageDialog(null,"Llenar Todos Los Campos","ERROR",JOptionPane.ERROR_MESSAGE);
+                }
+            }//Fin Conexion
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }//GEN-LAST:event_jButtonInsertarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
@@ -157,14 +246,14 @@ public class Inventario extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Inventario().setVisible(true);
+                new Inventario(user).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAceptar;
     private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonInsertar;
     private javax.swing.JButton jButtonMenu;
     private javax.swing.JLabel jLabelCantidad;
     private javax.swing.JLabel jLabelFondo;
