@@ -61,7 +61,7 @@ public class Cliente extends javax.swing.JFrame {
         jButtonBuscar.setBorderPainted(false);
         jButtonBuscar.setContentAreaFilled(false);
         getContentPane().add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 50, 30));
-        getContentPane().add(jTextFieldBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 140, -1));
+        getContentPane().add(jTextFieldBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 180, -1));
 
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/error3.png"))); // NOI18N
         jButtonCancelar.setBorderPainted(false);
@@ -79,12 +79,14 @@ public class Cliente extends javax.swing.JFrame {
         getContentPane().add(jButtonNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 40, 40));
         getContentPane().add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 130, 50));
 
-        jLabelDireccion.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelDireccion.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabelDireccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelDireccion.setText("Direccion :");
         getContentPane().add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
         getContentPane().add(jTextFieldNit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 130, -1));
 
-        jLabelNit.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNit.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabelNit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelNit.setText("Nit :");
         getContentPane().add(jLabelNit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
@@ -95,16 +97,14 @@ public class Cliente extends javax.swing.JFrame {
         });
         getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 130, -1));
 
-        jLabelNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombre.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabelNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelNombre.setText("Nombre :");
         getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
@@ -114,7 +114,8 @@ public class Cliente extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 520, 220));
 
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Fondo2.jpeg"))); // NOI18N
+        jLabelFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/FondoAzul.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 300));
 
         pack();

@@ -5,20 +5,41 @@
  */
 package frames;
 
+import Seguridad.Usuario;
+import java.sql.ResultSet;
+import java.sql.Connection;
+import javax.swing.ImageIcon;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author donald
  */
 public class menu extends javax.swing.JFrame {
+    private static Usuario user;//variable global del usuario 
 
     /**
      * Creates new form menu
      */
     public menu() {
         initComponents();
+        this.user=user;
         this.setLocationRelativeTo(null);
     }
-
+    public menu(Usuario user){
+        initComponents();
+        this.user=user;//Se asigna el usuaario que hizo login
+        this.setLocationRelativeTo(null);
+    }
+    public void seguridad(){
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -106,14 +127,15 @@ public class menu extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 70, 60));
 
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Fondo2.jpeg"))); // NOI18N
+        jLabelFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/FondoAzul.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInventarioActionPerformed
-        Inventario in = new Inventario();
+        Inventario in = new Inventario(user);
         this.setVisible(false);
         in.setVisible(true);
     }//GEN-LAST:event_jButtonInventarioActionPerformed
@@ -131,15 +153,15 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonClienteActionPerformed
 
     private void jButtonAnadirUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnadirUsuarioActionPerformed
-        AnadirUsuario user = new AnadirUsuario();
+        AnadirUsuario usuar = new AnadirUsuario();
         this.setVisible(false);
-        user.setVisible(true);
+        usuar.setVisible(true);
     }//GEN-LAST:event_jButtonAnadirUsuarioActionPerformed
 
     private void jButtonUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUsuariosActionPerformed
-        Usuarios user = new Usuarios();
+        Usuarios usuar = new Usuarios();
         this.setVisible(false);
-        user.setVisible(true);
+        usuar.setVisible(true);
     }//GEN-LAST:event_jButtonUsuariosActionPerformed
 
     private void jButtonVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVentaActionPerformed
@@ -174,11 +196,12 @@ public class menu extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new menu().setVisible(true);
+                new menu(user).setVisible(true);
             }
         });
     }
@@ -192,4 +215,5 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JButton jButtonVenta;
     private javax.swing.JLabel jLabelFondo;
     // End of variables declaration//GEN-END:variables
+
 }

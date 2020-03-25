@@ -45,17 +45,19 @@ public class AnadirUsuario extends javax.swing.JFrame {
         setTitle("Añadir Usuario");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombre.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabelNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelNombre.setText("Nombre de Usuario:");
-        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
+        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 120, -1));
         getContentPane().add(jTextFieldNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 180, -1));
 
-        jLabelContraseña.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelContraseña.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabelContraseña.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelContraseña.setText("Contraseña:");
         getContentPane().add(jLabelContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
         getContentPane().add(jPasswordFieldConstraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 180, -1));
 
-        jLabelRepetirContra.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelRepetirContra.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabelRepetirContra.setText("Repetir Contraseña:");
         getContentPane().add(jLabelRepetirContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
         getContentPane().add(jPasswordFieldRepetirContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 180, -1));
@@ -63,17 +65,12 @@ public class AnadirUsuario extends javax.swing.JFrame {
         jComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(jComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 180, -1));
 
+        jLabelImagenUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelImagenUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Usuario2.png"))); // NOI18N
-        jLabelImagenUsuario.setText("jLabel1");
         getContentPane().add(jLabelImagenUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 130, 120));
 
         jButtonCrear.setText("Crear");
-        jButtonCrear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCrearActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, -1));
+        getContentPane().add(jButtonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, -1));
 
         jButtonMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Login2.png"))); // NOI18N
         jButtonMenu.setBorderPainted(false);
@@ -85,7 +82,8 @@ public class AnadirUsuario extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 40, 40));
 
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Fondo2.jpeg"))); // NOI18N
+        jLabelFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/FondoAzul.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 440));
 
         pack();
@@ -96,10 +94,6 @@ public class AnadirUsuario extends javax.swing.JFrame {
         this.setVisible(false);
         otro.setVisible(true);
     }//GEN-LAST:event_jButtonMenuActionPerformed
-
-    private void jButtonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonCrearActionPerformed
 
     /**
      * @param args the command line arguments
