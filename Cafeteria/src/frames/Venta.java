@@ -4,28 +4,20 @@
  * and open the template in the editor.
  */
 package frames;
-
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
+import Seguridad.Conexion;
 /**
  *
  * @author USUARIO
  */
 public class Venta extends javax.swing.JFrame {
-    
+
     /**
      * Creates new form Venta
      */
     public Venta() {
         initComponents();
-        ConexionBD con = new ConexionBD();
-         Connection conexion = con.Conectar();
-         
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,6 +31,7 @@ public class Venta extends javax.swing.JFrame {
         jLabelTotal = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButtonNuevaVenta = new javax.swing.JButton();
         jButtonTerminarCompra = new javax.swing.JButton();
         jButtonTerminarVenta = new javax.swing.JButton();
         jButtonEliminar = new javax.swing.JButton();
@@ -57,18 +50,16 @@ public class Venta extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Venta");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jTextFieldTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 310, 60, -1));
+        getContentPane().add(jTextFieldTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 310, 60, -1));
 
-        jLabelTotal.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTotal.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabelTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTotal.setText("Total :");
-        getContentPane().add(jLabelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 310, 40, 20));
+        getContentPane().add(jLabelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, 40, 20));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Producto", "Cantidad", "Subtotal"
@@ -76,7 +67,12 @@ public class Venta extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 480, 280));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 480, 280));
+
+        jButtonNuevaVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/NuevaCompraNegro.png"))); // NOI18N
+        jButtonNuevaVenta.setBorderPainted(false);
+        jButtonNuevaVenta.setContentAreaFilled(false);
+        getContentPane().add(jButtonNuevaVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 50, 40));
 
         jButtonTerminarCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/CancelarCarritoNegro.png"))); // NOI18N
         jButtonTerminarCompra.setBorderPainted(false);
@@ -102,28 +98,32 @@ public class Venta extends javax.swing.JFrame {
         jButtonAgregar.setBorderPainted(false);
         jButtonAgregar.setContentAreaFilled(false);
         getContentPane().add(jButtonAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 50, 40));
-        getContentPane().add(jTextFieldCantMaxima, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 80, -1));
+        getContentPane().add(jTextFieldCantMaxima, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 100, -1));
 
-        jLabelCantidadMaxima.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelCantidadMaxima.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabelCantidadMaxima.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelCantidadMaxima.setText("Cantidad Maxima");
         getContentPane().add(jLabelCantidadMaxima, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, -1));
-        getContentPane().add(jTextFieldCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 40, -1));
+        getContentPane().add(jTextFieldCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 50, -1));
 
-        jLabelCantidad.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelCantidad.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabelCantidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelCantidad.setText("Cantidad");
         getContentPane().add(jLabelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
         jComboBoxProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBoxProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 150, -1));
+        getContentPane().add(jComboBoxProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 170, -1));
 
-        jLabelProducto.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelProducto.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabelProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelProducto.setText("Producto :");
         getContentPane().add(jLabelProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
         jComboBoxCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBoxCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 150, -1));
+        getContentPane().add(jComboBoxCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 170, -1));
 
-        jLabelCliente.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelCliente.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabelCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelCliente.setText("Cliente :");
         getContentPane().add(jLabelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
@@ -135,10 +135,11 @@ public class Venta extends javax.swing.JFrame {
                 jButtonMenuActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 300, 40, 40));
+        getContentPane().add(jButtonMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 300, 40, 40));
 
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Fondo2.jpeg"))); // NOI18N
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 350));
+        jLabelFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/FondoAzul.jpg"))); // NOI18N
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -193,6 +194,7 @@ public class Venta extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAgregar;
     private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonMenu;
+    private javax.swing.JButton jButtonNuevaVenta;
     private javax.swing.JButton jButtonTerminarCompra;
     private javax.swing.JButton jButtonTerminarVenta;
     private javax.swing.JComboBox<String> jComboBoxCliente;

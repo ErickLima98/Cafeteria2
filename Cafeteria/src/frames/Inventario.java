@@ -5,17 +5,87 @@
  */
 package frames;
 
+import Seguridad.Metodos_SQL;
+import Seguridad.Usuario;
+import Seguridad.Conexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author donald
  */
-public class Inventario extends javax.swing.JFrame {
 
+public class Inventario extends javax.swing.JFrame {
+    Metodos_SQL metodos_SQL = new Metodos_SQL();
+    
+        public Inventario() {
+        initComponents();
+    }
+
+    
+    
+    
+  //  private static Usuario user;//variable global del usuario logead
     /**
      * Creates new form Inventario
      */
-    public Inventario() {
-        initComponents();
+//    public Inventario(Usuario user) {
+//        this.user = user;
+//        this.setLocation(null);
+//        initComponents();
+//        this.setLocale(null);
+//    }
+//
+//    Inventario() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+    
+    private int Validad(){
+        if(nombreproducto.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null,"Llenar Todos Los campos","ERROR",JOptionPane.ERROR_MESSAGE);
+            return 1;
+        }
+        else if(cantidadproducto.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null,"Llenar Todos Los campos","ERROR",JOptionPane.ERROR_MESSAGE);
+            return 1;
+        }
+        else if(precioproducto.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null,"Llenar Todos Los campos","ERROR",JOptionPane.ERROR_MESSAGE);
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    
+    private void mostrardatos(String valor){
+        try {
+            Connection cn = Conexion.conectar();
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            String sql="";
+            Object[]tabla = new Object[4];
+            Statement st = cn.createStatement();
+            ResultSet rs =st.executeQuery(sql);
+            while (rs.next())
+            {
+               tabla[0]=rs.getString(1);
+               tabla[1]=rs.getString(2);
+               tabla[2]=rs.getString(3);
+               tabla[3]=rs.getString(4);
+               model.addRow(tabla);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"ERROR" +ex);
+        }
     }
 
     /**
@@ -27,14 +97,14 @@ public class Inventario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextFieldPrecio = new javax.swing.JTextField();
+        precioproducto = new javax.swing.JTextField();
         jLabelPrecio = new javax.swing.JLabel();
-        jTextFieldCantidad = new javax.swing.JTextField();
+        cantidadproducto = new javax.swing.JTextField();
         jLabelCantidad = new javax.swing.JLabel();
-        jTextFieldNombre = new javax.swing.JTextField();
+        nombreproducto = new javax.swing.JTextField();
         jLabelNombre = new javax.swing.JLabel();
         jButtonCancelar = new javax.swing.JButton();
-        jButtonAceptar = new javax.swing.JButton();
+        jButtonInsertar = new javax.swing.JButton();
         jButtonMenu = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -43,21 +113,24 @@ public class Inventario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Inventario");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 90, 110, -1));
+        getContentPane().add(precioproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 90, 110, -1));
 
-        jLabelPrecio.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPrecio.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabelPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelPrecio.setText("Precio :");
-        getContentPane().add(jLabelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, -1, -1));
-        getContentPane().add(jTextFieldCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 60, 110, -1));
+        getContentPane().add(jLabelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 90, 80, -1));
+        getContentPane().add(cantidadproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 60, 110, -1));
 
-        jLabelCantidad.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelCantidad.setText("Cantidad:");
-        getContentPane().add(jLabelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, -1, -1));
-        getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 30, 110, -1));
+        jLabelCantidad.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabelCantidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelCantidad.setText("Cantidad :");
+        getContentPane().add(jLabelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, 90, -1));
+        getContentPane().add(nombreproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 30, 110, -1));
 
-        jLabelNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombre.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabelNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelNombre.setText("Nombre :");
-        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, -1, -1));
+        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, 90, -1));
 
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/error3.png"))); // NOI18N
         jButtonCancelar.setBorderPainted(false);
@@ -70,15 +143,15 @@ public class Inventario extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 120, 40, 40));
 
-        jButtonAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/check2.png"))); // NOI18N
-        jButtonAceptar.setBorderPainted(false);
-        jButtonAceptar.setContentAreaFilled(false);
-        jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonInsertar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/check2.png"))); // NOI18N
+        jButtonInsertar.setBorderPainted(false);
+        jButtonInsertar.setContentAreaFilled(false);
+        jButtonInsertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAceptarActionPerformed(evt);
+                jButtonInsertarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 120, 40, 40));
+        getContentPane().add(jButtonInsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 120, 40, 40));
 
         jButtonMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Login2.png"))); // NOI18N
         jButtonMenu.setBorderPainted(false);
@@ -92,10 +165,7 @@ public class Inventario extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Id", "Nombre", "Cantidad", "Precio"
@@ -105,16 +175,19 @@ public class Inventario extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 550, 170));
 
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Fondo2.jpeg"))); // NOI18N
-        jLabelFondo.setText("jLabel1");
+        jLabelFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/FondoAzul.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonAceptarActionPerformed
+    private void jButtonInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertarActionPerformed
+       // Metodos_SQL s = new Metodos_SQL();
+       // int id = s.idincrementable();
+       metodos_SQL.guardar_datos(2, nombreproducto.getText(), Integer.parseInt(cantidadproducto.getText()), Float.parseFloat(precioproducto.getText()));
+     
+    }//GEN-LAST:event_jButtonInsertarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
@@ -155,16 +228,17 @@ public class Inventario extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+       java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Inventario().setVisible(true);
+               new Inventario().setVisible(true);
             }
-        });
+       });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAceptar;
+    private javax.swing.JTextField cantidadproducto;
     private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonInsertar;
     private javax.swing.JButton jButtonMenu;
     private javax.swing.JLabel jLabelCantidad;
     private javax.swing.JLabel jLabelFondo;
@@ -172,8 +246,7 @@ public class Inventario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelPrecio;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextFieldCantidad;
-    private javax.swing.JTextField jTextFieldNombre;
-    private javax.swing.JTextField jTextFieldPrecio;
+    private javax.swing.JTextField nombreproducto;
+    private javax.swing.JTextField precioproducto;
     // End of variables declaration//GEN-END:variables
 }
