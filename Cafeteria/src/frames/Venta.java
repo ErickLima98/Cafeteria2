@@ -5,6 +5,12 @@
  */
 package frames;
 import Seguridad.Conexion;
+import Seguridad.Metodos_SQL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 /**
  *
  * @author USUARIO
@@ -16,6 +22,12 @@ public class Venta extends javax.swing.JFrame {
      */
     public Venta() {
         initComponents();
+        jComboBoxCliente.removeAllItems();
+        jComboBoxProducto.removeAllItems();
+        Conexion con = new Conexion();
+        Connection conexion = con.conectar();
+        llenarcombobox1(conexion);
+        llenarcombobox2(conexion);
     }
 
     /**
@@ -154,7 +166,36 @@ public class Venta extends javax.swing.JFrame {
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonEliminarActionPerformed
+    
+    public void llenarcombobox1(Connection conexion) {
 
+        String consulta = "SELECT Nombre FROM cliente";//consulta sql 
+        Statement sentencia;
+        try {
+            sentencia = conexion.createStatement();
+            ResultSet resultado = sentencia.executeQuery(consulta);
+            while (resultado.next()) {
+                resultado.getString(1);
+                jComboBoxCliente.addItem(resultado.getString(1));
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    public void llenarcombobox2(Connection conexion) {
+        String consulta = "SELECT Nombre FROM inventario";//consulta sql 
+        Statement sentencia;
+        try {
+            sentencia = conexion.createStatement();
+            ResultSet resultado = sentencia.executeQuery(consulta);
+            while (resultado.next()) {
+                resultado.getString(1);
+                jComboBoxProducto.addItem(resultado.getString(1));
+            }
+        } catch (Exception e) {
+        }
+
+    }
     /**
      * @param args the command line arguments
      */
