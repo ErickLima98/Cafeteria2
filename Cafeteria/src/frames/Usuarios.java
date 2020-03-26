@@ -61,19 +61,22 @@ public class Usuarios extends javax.swing.JFrame {
         });
         getContentPane().add(jPasswordFieldContrase, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 130, -1));
 
-        jLabelContrase.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelContrase.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabelContrase.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelContrase.setText("Constraseña :");
-        getContentPane().add(jLabelContrase, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
+        getContentPane().add(jLabelContrase, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 100, -1));
         getContentPane().add(jTextFieldAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 130, -1));
 
-        jLabelAcceso.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelAcceso.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabelAcceso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelAcceso.setText("Acceso :");
-        getContentPane().add(jLabelAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+        getContentPane().add(jLabelAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 80, -1));
         getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 130, -1));
 
-        jLabelNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombre.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabelNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelNombre.setText("Nombre :");
-        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 80, -1));
 
         jTextField_ID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,9 +85,10 @@ public class Usuarios extends javax.swing.JFrame {
         });
         getContentPane().add(jTextField_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 130, -1));
 
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("ID :");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 50, -1));
 
         jButtonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Save.png"))); // NOI18N
         jButtonGuardar.setBorderPainted(false);
@@ -93,10 +97,7 @@ public class Usuarios extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "ID", "Nombre", "Acceso"
@@ -106,9 +107,10 @@ public class Usuarios extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 530, 250));
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Informacion Usuario");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 190, -1));
 
         jButtonMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Login2.png"))); // NOI18N
         jButtonMenu.setBorderPainted(false);
@@ -120,7 +122,8 @@ public class Usuarios extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 270, 40, 40));
 
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Fondo2.jpeg"))); // NOI18N
+        jLabelFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/FondoAzul.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 330));
 
         pack();
