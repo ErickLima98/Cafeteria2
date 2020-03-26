@@ -4,7 +4,13 @@
  * and open the template in the editor.
  */
 package frames;
-
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import Seguridad.Acceso;
+import Seguridad.Login;
+import Seguridad.ManejoUsuarios;
+import Seguridad.Usuario;
 
 
 /**
@@ -12,12 +18,30 @@ package frames;
  * @author USUARIO
  */
 public class AnadirUsuario extends javax.swing.JFrame {
+private menu menu;
+private Login login;
+private Usuario user;
 
+    ArrayList<Acceso> accesos;
+    private ManejoUsuarios manejador = new ManejoUsuarios();
     /**
      * Creates new form AnadirUsuario
      */
     public AnadirUsuario() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.png")).getImage());
+        login=new Login();
+        accesos = manejador.getAcceso();
+        for (Acceso acceso : accesos) {
+            jComboBox.addItem(acceso.toString());
+        }
+    }
+        private void limpiar(){
+        jPasswordFieldConstraseña.setText("");
+        jPasswordFieldRepetirContra.setText("");
+        jTextFieldNombreUsuario.setText("");
+        
     }
 
     /**
@@ -37,8 +61,8 @@ public class AnadirUsuario extends javax.swing.JFrame {
         jPasswordFieldRepetirContra = new javax.swing.JPasswordField();
         jComboBox = new javax.swing.JComboBox<>();
         jLabelImagenUsuario = new javax.swing.JLabel();
-        jButtonCrear = new javax.swing.JButton();
         jButtonMenu = new javax.swing.JButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -62,15 +86,11 @@ public class AnadirUsuario extends javax.swing.JFrame {
         getContentPane().add(jLabelRepetirContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
         getContentPane().add(jPasswordFieldRepetirContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 180, -1));
 
-        jComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(jComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 180, -1));
 
         jLabelImagenUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelImagenUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Usuario2.png"))); // NOI18N
-        getContentPane().add(jLabelImagenUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 130, 120));
-
-        jButtonCrear.setText("Crear");
-        getContentPane().add(jButtonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, -1));
+        getContentPane().add(jLabelImagenUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 130, 120));
 
         jButtonMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Login2.png"))); // NOI18N
         jButtonMenu.setBorderPainted(false);
@@ -81,6 +101,16 @@ public class AnadirUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 40, 40));
+
+        jToggleButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jToggleButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jToggleButton1.setText("Crear");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 70, -1));
 
         jLabelFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/FondoAzul.jpg"))); // NOI18N
@@ -94,6 +124,28 @@ public class AnadirUsuario extends javax.swing.JFrame {
         this.setVisible(false);
         otro.setVisible(true);
     }//GEN-LAST:event_jButtonMenuActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+
+        if(jPasswordFieldConstraseña.getText()!=jPasswordFieldRepetirContra.getText())
+        {
+            if(!jTextFieldNombreUsuario.getText().trim().equals(""))
+            {
+                int combo = jComboBox.getSelectedIndex();
+                boolean user = manejador.CrearUsuario(jTextFieldNombreUsuario.getText().trim(), jPasswordFieldConstraseña.getText(), accesos.get(combo).getId());
+                JOptionPane.showMessageDialog(this, "El usuario " + jTextFieldNombreUsuario.getText().trim() + " fue creado","INFORMACION",JOptionPane.INFORMATION_MESSAGE);
+                limpiar();
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Ingrese un Nombre de Usuario","ERROR",JOptionPane.ERROR_MESSAGE);
+            }
+        }else
+        {
+            JOptionPane.showMessageDialog(this, "Las contraseñas no son iguales","ERROR",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,7 +183,6 @@ public class AnadirUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCrear;
     private javax.swing.JButton jButtonMenu;
     private javax.swing.JComboBox<String> jComboBox;
     private javax.swing.JLabel jLabelContraseña;
@@ -142,5 +193,6 @@ public class AnadirUsuario extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordFieldConstraseña;
     private javax.swing.JPasswordField jPasswordFieldRepetirContra;
     private javax.swing.JTextField jTextFieldNombreUsuario;
+    private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 }

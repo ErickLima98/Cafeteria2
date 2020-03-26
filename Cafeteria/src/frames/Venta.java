@@ -4,18 +4,157 @@
  * and open the template in the editor.
  */
 package frames;
-
+import Seguridad.Conexion;
+import Seguridad.Usuario;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author USUARIO
  */
 public class Venta extends javax.swing.JFrame {
-
+    private static Usuario user;//variable global del usuario logeado
     /**
      * Creates new form Venta
      */
-    public Venta() {
-        initComponents();
+    public Venta() { 
+        this.user=user;//Se asigna el usuaario que hizo login
+        this.setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.png")).getImage());
+        initComponents();      
+        this.setLocationRelativeTo(null);
+        LlenarcmbCliente();
+        LlenarcmProducto();
+        jTextFieldCantidad.setEnabled(false);
+        jButtonAgregar.setVisible(false);
+        jButtonEliminar.setVisible(false);
+        jButtonTerminarVenta.setVisible(false);
+        jButtonTerminarCompra.setVisible(false);
+        
+        jComboBoxProducto.setEnabled(false);
+    }
+    
+    DefaultTableModel modelo=new DefaultTableModel()
+        {
+            @Override
+            public boolean isCellEditable(int fil, int col) {
+                return col==8;
+            }
+        };
+    Object[] ObjectTabla = new Object[99999];
+    
+ private  void mostrardatos(String valor)
+ {
+    try{
+        Connection cn=Conexion.conectar();  
+        DefaultTableModel modelo=new DefaultTableModel()
+        {
+            @Override
+            public boolean isCellEditable(int fil, int col) {
+            return col==7;
+            }
+        };
+        int UltimVe=obtenerUltimaVent();                
+            jTable1.setModel(modelo);
+            String sql="";
+            if (valor.equals(""))
+            {         
+             sql=" select med.Nombre, ped.Cantidad_Medi, (ped.Cantidad_Medi * med.PrecioInt) as subtotal from pedido ped inner join lote lot on ped.Lote_idLotes = lot.idLotes inner join medicamento med on lot.Medicamento_idMedicamento = med.idMedicamento  where (ped.Venta_idVenta = '"+UltimVe+"' ) ";
+            }
+            String []datos=new String [6];
+                Statement st=cn.createStatement();
+                ResultSet rs=st.executeQuery(sql);
+                while(rs.next())
+                {
+                    datos[0]=rs.getString(1);
+                    datos[1]=rs.getString(2);
+                    datos[2]=rs.getString(3);                          
+                    modelo.addRow(datos);
+                }
+                           
+              
+           
+        }catch(SQLException ex){
+           
+          JOptionPane.showMessageDialog(null, "Error" +ex);
+        }
+    }
+ 
+     
+private int Validar()
+    {
+       
+        if ( jtxtCantidad.getText().length()==0) 
+        {
+          JOptionPane.showMessageDialog(null, "Ingrese una cantidad", "Error", JOptionPane.ERROR_MESSAGE);
+          return 1;
+        }
+        else if (radExt.isSelected()==false && radInter.isSelected()==false ) 
+        {
+          JOptionPane.showMessageDialog(null, "Seleccionar un precio", "Error", JOptionPane.ERROR_MESSAGE);
+          return 1;
+
+        }
+
+        else
+        {
+            return 0;
+        }
+    }
+    
+   private void EliminarVenta( String idMedi, int Cant)
+   {
+   
+        try {
+            int idventa=obtenerUltimaVent();
+            idMedi=idMedi.substring(0, 1);
+
+            
+            Connection cn=Conexion.conectar();
+            String sql ="";
+            sql = " select lot.idLotes,  ped.Cantidad_Medi, med.idMedicamento, ped.idPedido from pedido ped inner join lote lot on ped.Lote_idLotes =  lot.idLotes inner join medicamento med on lot.Medicamento_idMedicamento = med.idMedicamento where (ped.Cantidad_Medi ="+Cant+" and med.idMedicamento ="+idMedi+" and ped.Venta_idVenta ="+idventa+") ";
+            String []datos=new String [6];
+          
+                Statement st=cn.createStatement();
+                ResultSet rs=st.executeQuery(sql);
+                
+                
+                while(rs.next())
+                {
+                    datos[0]=rs.getString(1);
+                    datos[1]=rs.getString(2);
+                    datos[2]=rs.getString(3);
+                    datos[3]=rs.getString(4);                 
+                    
+                }
+              
+              PreparedStatement pst=cn.prepareStatement("UPDATE  Lote  set lote.Existencia = (Lote.Existencia + '"+datos[1]+"' ) where (lote.idLotes = '"+datos[0]+"' ) ");
+              pst.executeUpdate();
+              
+              PreparedStatement pst2=cn.prepareStatement("UPDATE  Pedido  set Pedido.Cantidad_Medi = '0'  where (pedido.idPedido = '"+datos[3]+"' ) ");
+              pst2.executeUpdate();
+            
+            
+        } // Fin try
+        catch (SQLException ex) 
+        {
+         JOptionPane.showMessageDialog(null, "Error"+ex);
+        } // Fin Catch   
+   }
+
+    private void LlenarcmbCliente()
+    {
+        
+    }
+    private void LlenarcmProducto()
+    {
+        
     }
 
     /**
@@ -27,6 +166,8 @@ public class Venta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopOpciones = new javax.swing.JPopupMenu();
+        jMenuEliminar = new javax.swing.JMenuItem();
         jTextFieldTotal = new javax.swing.JTextField();
         jLabelTotal = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -47,15 +188,20 @@ public class Venta extends javax.swing.JFrame {
         jButtonMenu = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
+        jMenuEliminar.setText("jMenuItem1");
+        jPopOpciones.add(jMenuEliminar);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Venta");
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jTextFieldTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 310, 60, -1));
+        getContentPane().setLayout(null);
+        getContentPane().add(jTextFieldTotal);
+        jTextFieldTotal.setBounds(640, 310, 60, 20);
 
         jLabelTotal.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabelTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTotal.setText("Total :");
-        getContentPane().add(jLabelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, 40, 20));
+        getContentPane().add(jLabelTotal);
+        jLabelTotal.setBounds(590, 310, 40, 20);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -67,22 +213,31 @@ public class Venta extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 480, 280));
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(220, 20, 480, 280);
 
         jButtonNuevaVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/NuevaCompraNegro.png"))); // NOI18N
         jButtonNuevaVenta.setBorderPainted(false);
         jButtonNuevaVenta.setContentAreaFilled(false);
-        getContentPane().add(jButtonNuevaVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 50, 40));
+        jButtonNuevaVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNuevaVentaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonNuevaVenta);
+        jButtonNuevaVenta.setBounds(140, 20, 50, 40);
 
         jButtonTerminarCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/CancelarCarritoNegro.png"))); // NOI18N
         jButtonTerminarCompra.setBorderPainted(false);
         jButtonTerminarCompra.setContentAreaFilled(false);
-        getContentPane().add(jButtonTerminarCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, -1, -1));
+        getContentPane().add(jButtonTerminarCompra);
+        jButtonTerminarCompra.setBounds(110, 280, 65, 41);
 
         jButtonTerminarVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/ComprarNegro.png"))); // NOI18N
         jButtonTerminarVenta.setBorderPainted(false);
         jButtonTerminarVenta.setContentAreaFilled(false);
-        getContentPane().add(jButtonTerminarVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
+        getContentPane().add(jButtonTerminarVenta);
+        jButtonTerminarVenta.setBounds(10, 280, 65, 41);
 
         jButtonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/error3.png"))); // NOI18N
         jButtonEliminar.setBorderPainted(false);
@@ -92,40 +247,49 @@ public class Venta extends javax.swing.JFrame {
                 jButtonEliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 50, 40));
+        getContentPane().add(jButtonEliminar);
+        jButtonEliminar.setBounds(110, 230, 50, 40);
 
         jButtonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/AñadirNegro.png"))); // NOI18N
         jButtonAgregar.setBorderPainted(false);
         jButtonAgregar.setContentAreaFilled(false);
-        getContentPane().add(jButtonAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 50, 40));
-        getContentPane().add(jTextFieldCantMaxima, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 100, -1));
+        getContentPane().add(jButtonAgregar);
+        jButtonAgregar.setBounds(20, 230, 50, 40);
+        getContentPane().add(jTextFieldCantMaxima);
+        jTextFieldCantMaxima.setBounds(90, 200, 100, 20);
 
         jLabelCantidadMaxima.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabelCantidadMaxima.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelCantidadMaxima.setText("Cantidad Maxima");
-        getContentPane().add(jLabelCantidadMaxima, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, -1));
-        getContentPane().add(jTextFieldCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 50, -1));
+        getContentPane().add(jLabelCantidadMaxima);
+        jLabelCantidadMaxima.setBounds(90, 180, 98, 17);
+        getContentPane().add(jTextFieldCantidad);
+        jTextFieldCantidad.setBounds(20, 200, 50, 20);
 
         jLabelCantidad.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabelCantidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelCantidad.setText("Cantidad");
-        getContentPane().add(jLabelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        getContentPane().add(jLabelCantidad);
+        jLabelCantidad.setBounds(20, 180, 49, 17);
 
         jComboBoxProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBoxProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 170, -1));
+        getContentPane().add(jComboBoxProducto);
+        jComboBoxProducto.setBounds(20, 150, 170, 20);
 
         jLabelProducto.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabelProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelProducto.setText("Producto :");
-        getContentPane().add(jLabelProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+        getContentPane().add(jLabelProducto);
+        jLabelProducto.setBounds(20, 130, 59, 17);
 
-        jComboBoxCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBoxCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 170, -1));
+        getContentPane().add(jComboBoxCliente);
+        jComboBoxCliente.setBounds(20, 100, 170, 20);
 
         jLabelCliente.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabelCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelCliente.setText("Cliente :");
-        getContentPane().add(jLabelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+        getContentPane().add(jLabelCliente);
+        jLabelCliente.setBounds(20, 80, 45, 17);
 
         jButtonMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Login2.png"))); // NOI18N
         jButtonMenu.setBorderPainted(false);
@@ -135,11 +299,13 @@ public class Venta extends javax.swing.JFrame {
                 jButtonMenuActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 300, 40, 40));
+        getContentPane().add(jButtonMenu);
+        jButtonMenu.setBounds(720, 300, 40, 40);
 
         jLabelFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/FondoAzul.jpg"))); // NOI18N
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 350));
+        getContentPane().add(jLabelFondo);
+        jLabelFondo.setBounds(0, 0, 770, 350);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -154,6 +320,11 @@ public class Venta extends javax.swing.JFrame {
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonEliminarActionPerformed
+
+    private void jButtonNuevaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevaVentaActionPerformed
+        jTable1.setEnabled(true);
+        
+    }//GEN-LAST:event_jButtonNuevaVentaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,6 +376,8 @@ public class Venta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelProducto;
     private javax.swing.JLabel jLabelTotal;
+    private javax.swing.JMenuItem jMenuEliminar;
+    private javax.swing.JPopupMenu jPopOpciones;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextFieldCantMaxima;
