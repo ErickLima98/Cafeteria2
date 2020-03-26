@@ -23,38 +23,34 @@ public class Metodos_SQL {
     private static ResultSet resultado;
     
     
-    
-    
-    public int idincrementable(){
-        
-        int id = 1;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-       
-    
-        try {
-            conexion = Conexion.conectar();
-            String consulta = "SELECT MAX(idInventario) FROM inventario";
-            sentencia_preparada = conexion.prepareStatement(consulta);
+    public int iddd(){
+ResultSet rs= null;        
+int i = 1;
+         try {
+             conexion = Conexion.conectar(); 
+             String consulta = "SELECT MAX(idInventario) FROM inventario";
+             sentencia_preparada = conexion.prepareStatement(consulta);
             rs = sentencia_preparada.executeQuery();
-              while(rs.next()){
-                  id = rs.getInt(1) + 1;
-              }
-        } catch (SQLException e) {
-            System.out.println("Error: " + e);
-        }
-        finally{
+while(rs.next()){
+    i = rs.getInt(1) + 1;
+}
+           conexion.close();
+
+        } catch (HeadlessException | SQLException e) {
+
+            System.out.println("Error2: " + e);
+        } finally {
             try {
-                ps.close();
-                rs.close();   
                 conexion.close();
             } catch (SQLException e) {
-                System.out.println("Error: " + e);
+                System.out.println("Error3: " + e);
             }
         }
-        return id;
+        
+         
+         return i;
     }
-
+  
     public void guardar_datos(int idInventario, String Nombre, int Existencias, float Precio_venta) {
 
         try {

@@ -183,9 +183,9 @@ public class Inventario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertarActionPerformed
-       // Metodos_SQL s = new Metodos_SQL();
-       // int id = s.idincrementable();
-       metodos_SQL.guardar_datos(2, nombreproducto.getText(), Integer.parseInt(cantidadproducto.getText()), Float.parseFloat(precioproducto.getText()));
+       Metodos_SQL s = new Metodos_SQL();
+       int id = s.iddd();
+       metodos_SQL.guardar_datos(id, nombreproducto.getText(), Integer.parseInt(cantidadproducto.getText()), Float.parseFloat(precioproducto.getText()));
      
     }//GEN-LAST:event_jButtonInsertarActionPerformed
 
