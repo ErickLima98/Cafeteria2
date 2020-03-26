@@ -23,11 +23,11 @@ public class Login {
         
     }
     
-    public int login(String NombreUsuario, String password){
+    public int login(String NombreUsuario, String clave){
         int resultado = 0;
         try {
             conexion = Conexion.conectar();     //Se conecta a la base de datos
-            String consulta = "SELECT login (\""+NombreUsuario+"\",\""+password+"\");"; //Se utiliza metodo almacenado en la BBDD para hacer el login
+            String consulta = "SELECT login (\""+NombreUsuario+"\",\""+clave+"\");"; //Se utiliza metodo almacenado en la BBDD para hacer el login
             PreparedStatement pre = conexion.prepareStatement(consulta); // se prepara la consulta y se envia el strign con la consuta
             ResultSet res = pre.executeQuery();     // se ejecuta la consulta
             if(res.next()){  //se verifica que haya obtenido un valor la consulta
@@ -45,7 +45,7 @@ public class Login {
        Usuario user = null;
         try {
             conexion = Conexion.conectar();     //Se conecta a la base de datos
-            String consulta = "SELECT ac.Codigo, ac.Nombre, us.idUsuario FROM usuario us INNER JOIN accesos ac ON us.Accesos_id = ac.id WHERE us.Nombre = \""+usuario+"\";"; //Se utiliza metodo almacenado en la BBDD para hacer el login
+            String consulta = "SELECT ac.Codigo, ac.Nombre, us.idUsuario FROM usuario us INNER JOIN acceso ac ON us.Acceso_idAcceso = ac.idAcceso WHERE us.Nombre = \""+usuario+"\";"; //Se utiliza metodo almacenado en la BBDD para hacer el login
             PreparedStatement pre = conexion.prepareStatement(consulta); // se prepara la consulta y se envia el strign con la consuta
             ResultSet res = pre.executeQuery();     // se ejecuta la consulta
             if(res.next()){  //se verifica que haya obtenido un valor la consulta

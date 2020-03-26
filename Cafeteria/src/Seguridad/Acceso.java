@@ -10,7 +10,7 @@ package Seguridad;
  * @author Erick
  */
 public class Acceso {
-    private int id,codigo;
+    private int id, codigo;
     private String nombre;
     
     public Acceso(int id, int codigo, String nombre){
@@ -23,25 +23,17 @@ public class Acceso {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public int getCodigo() {
         return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
     }
 
     public String getNombre() {
         return nombre;
     }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
     
+    @Override
+    public String toString(){
+        return nombre;
+    }
     
 }

@@ -16,11 +16,17 @@ import java.util.logging.Logger;
  * @author Erick
  */
 public class Conexion {
+    
+     /**
+     * metodo que conecta y regresa una instancia de la conexion de la base de datos
+     * @return
+     * @throws SQLException 
+     */
     public static Connection conectar() throws SQLException{
         Connection conexion = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost/cafeteria", "cafeteria", "@cafeteria");
+            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/cafeteria2", "root", "brotha98");   //url, user, password
             return conexion;
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
