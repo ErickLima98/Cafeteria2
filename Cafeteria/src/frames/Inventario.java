@@ -13,6 +13,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -21,10 +23,52 @@ import javax.swing.table.DefaultTableModel;
  */
 
 public class Inventario extends javax.swing.JFrame {
+    private DefaultTableModel modelo;
     Metodos_SQL metodos_SQL = new Metodos_SQL();
     
         public Inventario() {
         initComponents();
+        tabla();
+    }
+        
+    /**
+     *
+     */
+    public void tabla(){//aqui cargo la tabla que se crea a partir del inventario
+        Conexion con = new Conexion();
+        Connection conexion = Conexion.conectar(); 
+        String sql = "SELECT * FROM inventario";//consulta sql 
+        Statement st;
+        modelo = new DefaultTableModel();
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Existencias");
+        modelo.addColumn("Precio Venta");    
+        jTable1.setModel(modelo);   
+        String[] dato = new String[4];
+        try{
+            st = conexion.createStatement();   
+            ResultSet result = st.executeQuery(sql); 
+            while(result.next()){
+                dato[0] = result.getString(1);
+                dato[1] = result.getString(2);
+                dato[2] = result.getString(3);
+                dato[3] = result.getString(4);
+                modelo.addRow(dato);//voy agregando los datos en la tabla
+                
+            }
+            
+            
+            conexion.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Inventario.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            try {
+                conexion.close();
+            } catch (SQLException e) {
+                System.out.println("Error3: " + e);
+            }
+        }
     }
 
     
@@ -186,7 +230,7 @@ public class Inventario extends javax.swing.JFrame {
        Metodos_SQL s = new Metodos_SQL();
        int id = s.iddd();
        metodos_SQL.guardar_datos(id, nombreproducto.getText(), Integer.parseInt(cantidadproducto.getText()), Float.parseFloat(precioproducto.getText()));
-     
+       tabla();
     }//GEN-LAST:event_jButtonInsertarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
