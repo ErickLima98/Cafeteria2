@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package frames;
+import Seguridad.Conexion;
+import Seguridad.Usuario;
 
 /**
  *
@@ -72,6 +74,11 @@ public class Venta extends javax.swing.JFrame {
         jButtonNuevaVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/NuevaCompraNegro.png"))); // NOI18N
         jButtonNuevaVenta.setBorderPainted(false);
         jButtonNuevaVenta.setContentAreaFilled(false);
+        jButtonNuevaVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNuevaVentaActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonNuevaVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 50, 40));
 
         jButtonTerminarCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/CancelarCarritoNegro.png"))); // NOI18N
@@ -154,6 +161,10 @@ public class Venta extends javax.swing.JFrame {
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonEliminarActionPerformed
+
+    private void jButtonNuevaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevaVentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonNuevaVentaActionPerformed
 
     /**
      * @param args the command line arguments

@@ -5,10 +5,10 @@
  */
 package frames;
 
-import Seguridad.Usuario;
 import java.sql.ResultSet;
 import java.sql.Connection;
 import javax.swing.ImageIcon;
+import Seguridad.Usuario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,25 +21,40 @@ import java.util.logging.Logger;
  * @author donald
  */
 public class menu extends javax.swing.JFrame {
-    private static Usuario user;//variable global del usuario 
-
+private static Usuario user;//variable global del usuario logeado
     /**
      * Creates new form menu
      */
     public menu() {
         initComponents();
-        this.user=user;
         this.setLocationRelativeTo(null);
     }
-    public menu(Usuario user){
+    
+    public menu(Usuario user) {//metodo constructor que recibe el usuario logeados
         initComponents();
         this.user=user;//Se asigna el usuaario que hizo login
         this.setLocationRelativeTo(null);
-    }
-    public void seguridad(){
+        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.png")).getImage());
         
     }
+
     
+     public void seguridad(){
+        System.out.println("nivel de acceso: "+user.getNivelAcceso());
+        if(user.getNivelAcceso()==1){
+            jButtonAnadirUsuario.setVisible(true);
+            jButtonCliente.setVisible(true);
+            jButtonInventario.setVisible(true);
+            jButtonUsuarios.setVisible(true);
+            jButtonVenta.setVisible(true);
+        }else if(user.getNivelAcceso()==2){
+            jButtonAnadirUsuario.setVisible(true);
+            jButtonCliente.setVisible(true);
+            jButtonInventario.setVisible(true);
+            jButtonUsuarios.setVisible(true);
+            jButtonVenta.setVisible(true);       
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,12 +68,14 @@ public class menu extends javax.swing.JFrame {
         jButtonAnadirUsuario = new javax.swing.JButton();
         jButtonVenta = new javax.swing.JButton();
         jButtonInventario = new javax.swing.JButton();
-        jButtonMenu = new javax.swing.JButton();
         jButtonCliente = new javax.swing.JButton();
+        btnCerrar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu");
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Usuario1.png"))); // NOI18N
@@ -70,7 +87,7 @@ public class menu extends javax.swing.JFrame {
                 jButtonUsuariosActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, 80, 50));
+        getContentPane().add(jButtonUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 80, 50));
 
         jButtonAnadirUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Agregar_Usuario.png"))); // NOI18N
         jButtonAnadirUsuario.setBorderPainted(false);
@@ -81,7 +98,7 @@ public class menu extends javax.swing.JFrame {
                 jButtonAnadirUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAnadirUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 80, 60));
+        getContentPane().add(jButtonAnadirUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 80, 60));
 
         jButtonVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Venta.png"))); // NOI18N
         jButtonVenta.setBorderPainted(false);
@@ -92,7 +109,7 @@ public class menu extends javax.swing.JFrame {
                 jButtonVentaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 70, 70));
+        getContentPane().add(jButtonVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 70, 70));
 
         jButtonInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Inventario.png"))); // NOI18N
         jButtonInventario.setBorderPainted(false);
@@ -105,17 +122,6 @@ public class menu extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 80, 70));
 
-        jButtonMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/menu.png"))); // NOI18N
-        jButtonMenu.setBorderPainted(false);
-        jButtonMenu.setContentAreaFilled(false);
-        jButtonMenu.setPreferredSize(new java.awt.Dimension(98, 74));
-        jButtonMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonMenuActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 70, 70));
-
         jButtonCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/ClientesNegro.png"))); // NOI18N
         jButtonCliente.setBorderPainted(false);
         jButtonCliente.setContentAreaFilled(false);
@@ -126,6 +132,21 @@ public class menu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 70, 60));
+
+        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Cerrar Sesion.png"))); // NOI18N
+        btnCerrar.setToolTipText("<html>\n<head>\n\t<style>\n\t\t #contenido{ \n\t\tbackground: #003333;  /*Se le da un color de fondo*/\n\t\tcolor: white;\t\t  /*Color a la letra*/\n\t\t}\n\t</style>\n</head>\n<body>\n\t<div id=contenido>\n\t\t<h2>Cerrar Programa</h2>\n\t</div>\n</body>\n</html>");
+        btnCerrar.setBorderPainted(false);
+        btnCerrar.setContentAreaFilled(false);
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, 70, 40));
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel5.setText("Cerrar Sesión");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, -1, -1));
 
         jLabelFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/FondoAzul.jpg"))); // NOI18N
@@ -139,12 +160,6 @@ public class menu extends javax.swing.JFrame {
         this.setVisible(false);
         in.setVisible(true);
     }//GEN-LAST:event_jButtonInventarioActionPerformed
-
-    private void jButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuActionPerformed
-        /*Menu2 menu = new Menu2();
-        this.setVisible(false);
-        menu.setVisible(true);*/
-    }//GEN-LAST:event_jButtonMenuActionPerformed
 
     private void jButtonClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteActionPerformed
         Cliente cliente = new Cliente();
@@ -169,6 +184,13 @@ public class menu extends javax.swing.JFrame {
         this.setVisible(false);
         venta.setVisible(true);
     }//GEN-LAST:event_jButtonVentaActionPerformed
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        // TODO add your handling code here:
+        Inicio otro = new Inicio();
+        otro.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCerrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,12 +229,13 @@ public class menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCerrar;
     private javax.swing.JButton jButtonAnadirUsuario;
     private javax.swing.JButton jButtonCliente;
     private javax.swing.JButton jButtonInventario;
-    private javax.swing.JButton jButtonMenu;
     private javax.swing.JButton jButtonUsuarios;
     private javax.swing.JButton jButtonVenta;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelFondo;
     // End of variables declaration//GEN-END:variables
 

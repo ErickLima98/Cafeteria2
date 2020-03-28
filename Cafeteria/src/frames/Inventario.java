@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -25,13 +26,11 @@ public class Inventario extends javax.swing.JFrame {
      */
     public Inventario(Usuario user) {
         this.user = user;
-        this.setLocation(null);
+        this.setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.png")).getImage());
         initComponents();
-        this.setLocale(null);
-    }
-
-    Inventario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.setLocationRelativeTo(null);
+        mostrardatos("");
     }
     
     private int Validad(){
@@ -86,6 +85,9 @@ public class Inventario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopOpciones = new javax.swing.JPopupMenu();
+        jMenuInsertar = new javax.swing.JMenuItem();
+        jMenuEditarPrecio = new javax.swing.JMenuItem();
         jTextFieldPrecio = new javax.swing.JTextField();
         jLabelPrecio = new javax.swing.JLabel();
         jTextFieldCantidad = new javax.swing.JTextField();
@@ -95,31 +97,49 @@ public class Inventario extends javax.swing.JFrame {
         jButtonCancelar = new javax.swing.JButton();
         jButtonInsertar = new javax.swing.JButton();
         jButtonMenu = new javax.swing.JButton();
+        jButtonNuevo = new javax.swing.JButton();
+        jButtonModificar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabelFondo = new javax.swing.JLabel();
 
+        jMenuInsertar.setText("jMenuItem1");
+        jMenuInsertar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuInsertarActionPerformed(evt);
+            }
+        });
+        jPopOpciones.add(jMenuInsertar);
+
+        jMenuEditarPrecio.setText("jMenuItem1");
+        jMenuEditarPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuEditarPrecioActionPerformed(evt);
+            }
+        });
+        jPopOpciones.add(jMenuEditarPrecio);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Inventario");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 90, 110, -1));
+        getContentPane().add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 140, 160, -1));
 
         jLabelPrecio.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabelPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelPrecio.setText("Precio :");
-        getContentPane().add(jLabelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 90, 80, -1));
-        getContentPane().add(jTextFieldCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 60, 110, -1));
+        getContentPane().add(jLabelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, 80, -1));
+        getContentPane().add(jTextFieldCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 110, 160, -1));
 
         jLabelCantidad.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabelCantidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelCantidad.setText("Cantidad :");
-        getContentPane().add(jLabelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, 90, -1));
-        getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 30, 110, -1));
+        getContentPane().add(jLabelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 90, -1));
+        getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, 160, -1));
 
         jLabelNombre.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabelNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelNombre.setText("Nombre :");
-        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, 90, -1));
+        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 80, 90, -1));
 
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/error3.png"))); // NOI18N
         jButtonCancelar.setBorderPainted(false);
@@ -130,7 +150,7 @@ public class Inventario extends javax.swing.JFrame {
                 jButtonCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 120, 40, 40));
+        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 170, 40, 40));
 
         jButtonInsertar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/check2.png"))); // NOI18N
         jButtonInsertar.setBorderPainted(false);
@@ -140,7 +160,7 @@ public class Inventario extends javax.swing.JFrame {
                 jButtonInsertarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonInsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 120, 40, 40));
+        getContentPane().add(jButtonInsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 170, 40, 40));
 
         jButtonMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Login2.png"))); // NOI18N
         jButtonMenu.setBorderPainted(false);
@@ -152,6 +172,26 @@ public class Inventario extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 250, 40, 40));
 
+        jButtonNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/AñadirNegro.png"))); // NOI18N
+        jButtonNuevo.setBorderPainted(false);
+        jButtonNuevo.setContentAreaFilled(false);
+        jButtonNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNuevoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 30, 40, 40));
+
+        jButtonModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Lapiz.png"))); // NOI18N
+        jButtonModificar.setBorderPainted(false);
+        jButtonModificar.setContentAreaFilled(false);
+        jButtonModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModificarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 170, 30, 40));
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -162,11 +202,11 @@ public class Inventario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 550, 170));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 550, 210));
 
         jLabelFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/FondoAzul.jpg"))); // NOI18N
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 300));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -177,7 +217,7 @@ public class Inventario extends javax.swing.JFrame {
             {
                 if(Validad()==0)
                 {
-                    PreparedStatement pst = cn.prepareStatement("INSERT INTO");
+                    PreparedStatement pst = cn.prepareStatement("INSERT INTO inventario(Nombre,Existencias,Precio_venta)VALUES(?,?,?)");
                     pst.setString(1,jTextFieldNombre.getText());
                     pst.setString(2,jTextFieldCantidad.getText());
                     pst.setDouble(3,Double.parseDouble(jTextFieldPrecio.getText()));
@@ -206,15 +246,111 @@ public class Inventario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonInsertarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
-        // TODO add your handling code here:
+        jButtonNuevo.setVisible(true);
+        jButtonCancelar.setVisible(false);
+        jButtonInsertar.setVisible(false);
+        jTextFieldNombre.setEnabled(false);
+        jTextFieldCantidad.setEnabled(false);
+        jTextFieldPrecio.setEnabled(false);
+        
+        jTextFieldNombre.setText("");
+        jTextFieldCantidad.setText("");
+        jTextFieldPrecio.setText("");
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
+  
     private void jButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuActionPerformed
         // TODO add your handling code here:
         menu otro = new menu();
         this.setVisible(false);
         otro.setVisible(true);
     }//GEN-LAST:event_jButtonMenuActionPerformed
+
+    private void jButtonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoActionPerformed
+        jButtonNuevo.setVisible(false);
+        jButtonCancelar.setVisible(true);
+        jButtonInsertar.setVisible(true);
+        jButtonInsertar.setEnabled(true);
+        jTextFieldNombre.setEnabled(true);
+        jTextFieldCantidad.setEnabled(true);
+        jTextFieldPrecio.setEnabled(true);
+        
+        jTextFieldNombre.setText("");
+        jTextFieldCantidad.setText("");
+        jTextFieldPrecio.setText("");
+    }//GEN-LAST:event_jButtonNuevoActionPerformed
+
+    private void jMenuInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuInsertarActionPerformed
+        jButtonCancelar.setVisible(true);
+        jButtonNuevo.setVisible(true);
+        jButtonInsertar.setVisible(true);
+        jButtonInsertar.setEnabled(true);
+        jTextFieldNombre.setEnabled(true);
+        jTextFieldCantidad.setEnabled(true);
+        jTextFieldPrecio.setEnabled(true);
+        
+        jTextFieldNombre.setText("");
+        jTextFieldCantidad.setText("");
+        jTextFieldPrecio.setText("");
+    }//GEN-LAST:event_jMenuInsertarActionPerformed
+
+    private void jMenuEditarPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuEditarPrecioActionPerformed
+        jButtonInsertar.setVisible(false);
+        jButtonNuevo.setVisible(false);
+        jButtonCancelar.setVisible(true);
+        
+        int fila = jTable1.getSelectedRow();
+        if (fila == 1)
+        {
+            JOptionPane.showMessageDialog(null,"Seleccionar una casilla","ERROR",JOptionPane.ERROR_MESSAGE);
+        }
+        else
+        {
+            jTextFieldPrecio.setEnabled(true);
+            jButtonModificar.setVisible(true);
+            
+            jTextFieldNombre.setText(jTable1.getValueAt(fila,1).toString());
+            jTextFieldCantidad.setText(jTable1.getValueAt(fila, 2).toString());
+            jTextFieldPrecio.setText(jTable1.getValueAt(fila, 3).toString());
+        }
+    }//GEN-LAST:event_jMenuEditarPrecioActionPerformed
+
+    private void jButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarActionPerformed
+        try {
+            Connection cn = Conexion.conectar();
+            int fila =jTable1.getSelectedRow();
+            String idm="";
+            if(fila==-1)
+            {
+                JOptionPane.showMessageDialog(null,"Seleccione una casilla","ERROR",JOptionPane.ERROR_MESSAGE);    
+            }
+            else
+            {
+                idm=jTable1.getValueAt(fila,0).toString();
+            }
+            try {
+                if(Validad()==0)
+                {
+                    PreparedStatement pst = cn.prepareStatement("UPDATE inventario SET idInventario ='"+idm+"',Nombre='"+jTextFieldNombre.getText()+"',Existencias='"+jTextFieldCantidad.getText()+"',Precio_venta='"+jTextFieldPrecio.getText());
+                    pst.executeUpdate();
+                    mostrardatos("");
+                    jTextFieldNombre.setText(null);
+                    jTextFieldCantidad.setText(null);
+                    jTextFieldPrecio.setText(null);
+                    jButtonModificar.setVisible(false);
+                    JOptionPane.showMessageDialog(null,"Registro Modificado con Exito");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null,"Llenar todos los campos","ERROR",JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null,"ERROR" +e);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"ERROR" +ex);
+        }
+    }//GEN-LAST:event_jButtonModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,10 +391,15 @@ public class Inventario extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonInsertar;
     private javax.swing.JButton jButtonMenu;
+    private javax.swing.JButton jButtonModificar;
+    private javax.swing.JButton jButtonNuevo;
     private javax.swing.JLabel jLabelCantidad;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JLabel jLabelPrecio;
+    private javax.swing.JMenuItem jMenuEditarPrecio;
+    private javax.swing.JMenuItem jMenuInsertar;
+    private javax.swing.JPopupMenu jPopOpciones;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextFieldCantidad;

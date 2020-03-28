@@ -28,7 +28,7 @@ public class ManejoUsuarios {
         ArrayList<Usuario> usuario = new ArrayList<>();
         try {
             conexion = Conexion.conectar();
-            String consulta = "SELECT us.idUsuario, us.Nombre, ac.Codigo, ac.Nombre FROM usuario us INNER JOIN acceso ac ON us.Acceso_id = ac.id;"; //consulta para la BBDD
+            String consulta = "SELECT us.idUsuario, us.Nombre, ac.Codigo, ac.Nombre FROM usuario us INNER JOIN acceso ac ON us.Acceso_idAcceso = ac.id;"; //consulta para la BBDD
             PreparedStatement pre = conexion.prepareStatement(consulta);
             ResultSet res = pre.executeQuery();
             while(res.next()){
@@ -60,10 +60,10 @@ public class ManejoUsuarios {
         return acceso;
     }
     
-    public boolean CrearUsuario(String username, String password, int acceso){
+    public boolean CrearUsuario(String username, String clave, int acceso){
         try {
             conexion = Conexion.conectar();
-            String consulta = "SELECT crearUsuario (\""+username+"\",\""+password+"\","+acceso+");"; //consulta para la BBDD
+            String consulta = "SELECT crearUsuario (\""+username+"\",\""+clave+"\","+acceso+");"; //consulta para la BBDD
             PreparedStatement pre = conexion.prepareStatement(consulta);
             ResultSet res = pre.executeQuery();
             int creado = 0;
@@ -80,11 +80,11 @@ public class ManejoUsuarios {
         return false;
     }
     
-    public int ResestPass(String username, String password, int adminID){
+    public int ResestPass(String userName, String clave, int adminId){
         int resul = 0;
         try {
             conexion = Conexion.conectar();
-            String consulta = "SELECT restaurarClave (\""+username+"\",\""+password+"\","+adminID+");"; //consulta para la BBDD
+            String consulta = "SELECT restaurarClave (\""+userName+"\",\""+clave+"\","+adminId+");"; //consulta para la BBDD
             PreparedStatement pre = conexion.prepareStatement(consulta);
             ResultSet res = pre.executeQuery();
             resul = 0;
