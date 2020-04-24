@@ -4,7 +4,14 @@
  * and open the template in the editor.
  */
 package frames;
+<<<<<<< Updated upstream
 
+=======
+import Seguridad.Usuario;
+import java.sql.ResultSet;
+import java.sql.Connection;
+import javax.swing.ImageIcon;
+>>>>>>> Stashed changes
 import java.sql.ResultSet;
 import java.sql.Connection;
 import javax.swing.ImageIcon;
@@ -21,7 +28,11 @@ import java.util.logging.Logger;
  * @author donald
  */
 public class menu extends javax.swing.JFrame {
+<<<<<<< Updated upstream
 private static Usuario user;//variable global del usuario logeado
+=======
+    private static Usuario user;//variable global del usuario 
+>>>>>>> Stashed changes
     /**
      * Creates new form menu
      */
@@ -29,7 +40,10 @@ private static Usuario user;//variable global del usuario logeado
         initComponents();
         this.setLocationRelativeTo(null);
     }
+<<<<<<< Updated upstream
     
+=======
+>>>>>>> Stashed changes
     public menu(Usuario user) {//metodo constructor que recibe el usuario logeados
         initComponents();
         this.user=user;//Se asigna el usuaario que hizo login
@@ -37,9 +51,7 @@ private static Usuario user;//variable global del usuario logeado
         setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.png")).getImage());
         
     }
-
-    
-     public void seguridad(){
+    public void seguridad(){
         System.out.println("nivel de acceso: "+user.getNivelAcceso());
         if(user.getNivelAcceso()==1){
             jButtonAnadirUsuario.setVisible(true);
