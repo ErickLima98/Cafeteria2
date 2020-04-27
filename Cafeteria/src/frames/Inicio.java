@@ -23,7 +23,7 @@ public class Inicio extends javax.swing.JFrame {
     public Inicio() {
         initComponents();
         this.setLocationRelativeTo(null);
-        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.jpg")).getImage());
         login=new Login();
     }
 
@@ -39,27 +39,34 @@ public class Inicio extends javax.swing.JFrame {
         jPasswordFieldContraseña = new javax.swing.JPasswordField();
         jLabelContraseña = new javax.swing.JLabel();
         jTextFieldUsuario = new javax.swing.JTextField();
-        btnCerrar = new javax.swing.JButton();
         jLabelUsuario = new javax.swing.JLabel();
+        btnCerrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        Cafe = new javax.swing.JLabel();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Principal");
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPasswordFieldContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 190, -1));
+        getContentPane().add(jPasswordFieldContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 140, -1));
 
         jLabelContraseña.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabelContraseña.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelContraseña.setText("Contraseña :");
-        getContentPane().add(jLabelContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
-        getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 190, -1));
+        getContentPane().add(jLabelContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, -1));
+        getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 140, -1));
 
+        jLabelUsuario.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabelUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelUsuario.setText("Usuario :");
+        getContentPane().add(jLabelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
+
+        btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Cerrar.png"))); // NOI18N
-        btnCerrar.setToolTipText("<html>\n<head>\n\t<style>\n\t\t #contenido{ \n\t\tbackground: #003333;  /*Se le da un color de fondo*/\n\t\tcolor: white;\t\t  /*Color a la letra*/\n\t\t}\n\t</style>\n</head>\n<body>\n\t<div id=contenido>\n\t\t<h2>Cerrar Programa</h2>\n\t</div>\n</body>\n</html>");
+        btnCerrar.setToolTipText("<html>\n<head>\n\t<style>\n\t\t #contenido{ \n\t\tbackground: #111111;  /*Se le da un color de fondo*/\n\t\tcolor: white;\t\t  /*Color a la letra*/\n\t\t}\n\t</style>\n</head>\n<body>\n\t<div id=contenido>\n\t\t<h4>Salir</h4>\n\t</div>\n</body>\n</html>");
         btnCerrar.setBorderPainted(false);
         btnCerrar.setContentAreaFilled(false);
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -67,16 +74,11 @@ public class Inicio extends javax.swing.JFrame {
                 btnCerrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 70, 50));
-
-        jLabelUsuario.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabelUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelUsuario.setText("Usuario :");
-        getContentPane().add(jLabelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+        getContentPane().add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 40, 40));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Usuario2.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 150, 170));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Usuario_Principal.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 160, 160));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -86,7 +88,7 @@ public class Inicio extends javax.swing.JFrame {
                 jLabel2MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 190, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 190, -1));
 
         jButton1.setText("Acceder");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -94,12 +96,16 @@ public class Inicio extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, -1, -1));
+
+        Cafe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Cafe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/cafe.jpg"))); // NOI18N
+        getContentPane().add(Cafe, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 150, 90));
 
         jLabelFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/FondoAzul.jpg"))); // NOI18N
         jLabelFondo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 410));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -172,6 +178,7 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Cafe;
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

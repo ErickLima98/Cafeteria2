@@ -4,14 +4,7 @@
  * and open the template in the editor.
  */
 package frames;
-<<<<<<< Updated upstream
 
-=======
-import Seguridad.Usuario;
-import java.sql.ResultSet;
-import java.sql.Connection;
-import javax.swing.ImageIcon;
->>>>>>> Stashed changes
 import java.sql.ResultSet;
 import java.sql.Connection;
 import javax.swing.ImageIcon;
@@ -28,30 +21,26 @@ import java.util.logging.Logger;
  * @author donald
  */
 public class menu extends javax.swing.JFrame {
-<<<<<<< Updated upstream
 private static Usuario user;//variable global del usuario logeado
-=======
-    private static Usuario user;//variable global del usuario 
->>>>>>> Stashed changes
     /**
      * Creates new form menu
      */
     public menu() {
         initComponents();
         this.setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.jpg")).getImage());
     }
-<<<<<<< Updated upstream
     
-=======
->>>>>>> Stashed changes
     public menu(Usuario user) {//metodo constructor que recibe el usuario logeados
         initComponents();
         this.user=user;//Se asigna el usuaario que hizo login
         this.setLocationRelativeTo(null);
-        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.jpg")).getImage());
         
     }
-    public void seguridad(){
+
+    
+     public void seguridad(){
         System.out.println("nivel de acceso: "+user.getNivelAcceso());
         if(user.getNivelAcceso()==1){
             jButtonAnadirUsuario.setVisible(true);
@@ -83,14 +72,16 @@ private static Usuario user;//variable global del usuario logeado
         jButtonCliente = new javax.swing.JButton();
         btnCerrar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu");
-        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Usuario1.png"))); // NOI18N
+        jButtonUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Grupo-de-Usuarios.png"))); // NOI18N
+        jButtonUsuarios.setToolTipText("<html>\n<head>\n\t<style>\n\t\t #contenido{ \n\t\tbackground: #111111;  /*Se le da un color de fondo*/\n\t\tcolor: white;\t\t  /*Color a la letra*/\n\t\t}\n\t</style>\n</head>\n<body>\n\t<div id=contenido>\n\t\t<h4>Usuarios</h4>\n\t</div>\n</body>\n</html>");
         jButtonUsuarios.setBorderPainted(false);
         jButtonUsuarios.setContentAreaFilled(false);
         jButtonUsuarios.setPreferredSize(new java.awt.Dimension(98, 74));
@@ -99,9 +90,10 @@ private static Usuario user;//variable global del usuario logeado
                 jButtonUsuariosActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 80, 50));
+        getContentPane().add(jButtonUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 80, 60));
 
-        jButtonAnadirUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Agregar_Usuario.png"))); // NOI18N
+        jButtonAnadirUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Agregar-Usuario.png"))); // NOI18N
+        jButtonAnadirUsuario.setToolTipText("<html>\n<head>\n\t<style>\n\t\t #contenido{ \n\t\tbackground: #111111;  /*Se le da un color de fondo*/\n\t\tcolor: white;\t\t  /*Color a la letra*/\n\t\t}\n\t</style>\n</head>\n<body>\n\t<div id=contenido>\n\t\t<h4>Añadir Usuario</h4>\n\t</div>\n</body>\n</html>");
         jButtonAnadirUsuario.setBorderPainted(false);
         jButtonAnadirUsuario.setContentAreaFilled(false);
         jButtonAnadirUsuario.setPreferredSize(new java.awt.Dimension(98, 74));
@@ -110,9 +102,10 @@ private static Usuario user;//variable global del usuario logeado
                 jButtonAnadirUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAnadirUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 80, 60));
+        getContentPane().add(jButtonAnadirUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 70, 60));
 
-        jButtonVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Venta.png"))); // NOI18N
+        jButtonVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/ventas.png"))); // NOI18N
+        jButtonVenta.setToolTipText("<html>\n<head>\n\t<style>\n\t\t #contenido{ \n\t\tbackground: #111111;  /*Se le da un color de fondo*/\n\t\tcolor: white;\t\t  /*Color a la letra*/\n\t\t}\n\t</style>\n</head>\n<body>\n\t<div id=contenido>\n\t\t<h4>Venta</h4>\n\t</div>\n</body>\n</html>");
         jButtonVenta.setBorderPainted(false);
         jButtonVenta.setContentAreaFilled(false);
         jButtonVenta.setPreferredSize(new java.awt.Dimension(98, 74));
@@ -121,9 +114,10 @@ private static Usuario user;//variable global del usuario logeado
                 jButtonVentaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 70, 70));
+        getContentPane().add(jButtonVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 80, 70));
 
         jButtonInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Inventario.png"))); // NOI18N
+        jButtonInventario.setToolTipText("<html>\n<head>\n\t<style>\n\t\t #contenido{ \n\t\tbackground: #111111;  /*Se le da un color de fondo*/\n\t\tcolor: white;\t\t  /*Color a la letra*/\n\t\t}\n\t</style>\n</head>\n<body>\n\t<div id=contenido>\n\t\t<h4>Inventario</h4>\n\t</div>\n</body>\n</html>");
         jButtonInventario.setBorderPainted(false);
         jButtonInventario.setContentAreaFilled(false);
         jButtonInventario.setPreferredSize(new java.awt.Dimension(98, 74));
@@ -132,9 +126,10 @@ private static Usuario user;//variable global del usuario logeado
                 jButtonInventarioActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 80, 70));
+        getContentPane().add(jButtonInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 80, 70));
 
-        jButtonCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/ClientesNegro.png"))); // NOI18N
+        jButtonCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Clientes.png"))); // NOI18N
+        jButtonCliente.setToolTipText("<html>\n<head>\n\t<style>\n\t\t #contenido{ \n\t\tbackground: #111111;  /*Se le da un color de fondo*/\n\t\tcolor: white;\t\t  /*Color a la letra*/\n\t\t}\n\t</style>\n</head>\n<body>\n\t<div id=contenido>\n\t\t<h4>Cliente</h4>\n\t</div>\n</body>\n</html>");
         jButtonCliente.setBorderPainted(false);
         jButtonCliente.setContentAreaFilled(false);
         jButtonCliente.setPreferredSize(new java.awt.Dimension(98, 74));
@@ -143,10 +138,10 @@ private static Usuario user;//variable global del usuario logeado
                 jButtonClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 70, 60));
+        getContentPane().add(jButtonCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 70, 60));
 
-        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Cerrar Sesion.png"))); // NOI18N
-        btnCerrar.setToolTipText("<html>\n<head>\n\t<style>\n\t\t #contenido{ \n\t\tbackground: #003333;  /*Se le da un color de fondo*/\n\t\tcolor: white;\t\t  /*Color a la letra*/\n\t\t}\n\t</style>\n</head>\n<body>\n\t<div id=contenido>\n\t\t<h2>Cerrar Programa</h2>\n\t</div>\n</body>\n</html>");
+        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Login.png"))); // NOI18N
+        btnCerrar.setToolTipText("<html>\n<head>\n\t<style>\n\t\t #contenido{ \n\t\tbackground: #111111;  /*Se le da un color de fondo*/\n\t\tcolor: white;\t\t  /*Color a la letra*/\n\t\t}\n\t</style>\n</head>\n<body>\n\t<div id=contenido>\n\t\t<h4>Cerrar Programa</h4>\n\t</div>\n</body>\n</html>");
         btnCerrar.setBorderPainted(false);
         btnCerrar.setContentAreaFilled(false);
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -154,15 +149,20 @@ private static Usuario user;//variable global del usuario logeado
                 btnCerrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, 70, 40));
+        getContentPane().add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 100, 40, 50));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Cerrar Sesión");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, -1, -1));
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/cafe.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, 90));
 
         jLabelFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/FondoAzul.jpg"))); // NOI18N
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 300));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 180));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -174,7 +174,7 @@ private static Usuario user;//variable global del usuario logeado
     }//GEN-LAST:event_jButtonInventarioActionPerformed
 
     private void jButtonClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteActionPerformed
-        Cliente cliente = new Cliente();
+        Cliente cliente = new Cliente(user);
         this.setVisible(false);
         cliente.setVisible(true);
     }//GEN-LAST:event_jButtonClienteActionPerformed
@@ -247,6 +247,7 @@ private static Usuario user;//variable global del usuario logeado
     private javax.swing.JButton jButtonInventario;
     private javax.swing.JButton jButtonUsuarios;
     private javax.swing.JButton jButtonVenta;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelFondo;
     // End of variables declaration//GEN-END:variables
