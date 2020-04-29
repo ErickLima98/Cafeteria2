@@ -6,6 +6,10 @@
 package frames;
 
 import javax.swing.JOptionPane;
+<<<<<<< HEAD
+=======
+import javax.swing.ImageIcon;
+>>>>>>> erick/CambioInterfaz
 import Seguridad.Login;
 import Seguridad.ManejoUsuarios;
 import Seguridad.Usuario;
@@ -23,6 +27,10 @@ private Usuario user;
     public RestaurarContraseña() {
         initComponents();
         this.setLocationRelativeTo(null);
+<<<<<<< HEAD
+=======
+        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.png")).getImage());
+>>>>>>> erick/CambioInterfaz
         login = new Login();
     }
 
@@ -43,35 +51,61 @@ private Usuario user;
         jTextFieldNombreUsuario2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jTextFieldNombreUsuario1 = new javax.swing.JTextField();
+<<<<<<< HEAD
         jButtonRestaurar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+=======
+        jLabel5 = new javax.swing.JLabel();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        btnCerrar = new javax.swing.JButton();
+>>>>>>> erick/CambioInterfaz
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Restaurar Contraseña");
+<<<<<<< HEAD
+=======
+        setResizable(false);
+>>>>>>> erick/CambioInterfaz
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Contraseña Nueva");
+<<<<<<< HEAD
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, -1, -1));
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 290, 170, -1));
+=======
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 200, -1));
+>>>>>>> erick/CambioInterfaz
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Contraseña");
+<<<<<<< HEAD
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
         getContentPane().add(jPasswordFieldContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 160, -1));
+=======
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        getContentPane().add(jPasswordFieldContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 200, -1));
+>>>>>>> erick/CambioInterfaz
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Nombre de Usuario");
+<<<<<<< HEAD
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 120, -1));
         getContentPane().add(jTextFieldNombreUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 170, -1));
+=======
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 120, -1));
+        getContentPane().add(jTextFieldNombreUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 200, -1));
+>>>>>>> erick/CambioInterfaz
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Nombre de Usuario (Admin)");
+<<<<<<< HEAD
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
         getContentPane().add(jTextFieldNombreUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 160, -1));
 
@@ -90,11 +124,46 @@ private Usuario user;
         jLabelFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/FondoAzul.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 410));
+=======
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 170, -1));
+        getContentPane().add(jTextFieldNombreUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 200, -1));
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Autenticacion.png"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 120, 130));
+
+        jToggleButton1.setText("Restaurar");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, -1, -1));
+
+        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Cerrar.png"))); // NOI18N
+        btnCerrar.setToolTipText("<html>\n<head>\n\t<style>\n\t\t #contenido{ \n\t\tbackground: #003333;  /*Se le da un color de fondo*/\n\t\tcolor: white;\t\t  /*Color a la letra*/\n\t\t}\n\t</style>\n</head>\n<body>\n\t<div id=contenido>\n\t\t<h2>Cerrar Programa</h2>\n\t</div>\n</body>\n</html>");
+        btnCerrar.setBorderPainted(false);
+        btnCerrar.setContentAreaFilled(false);
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 30, 40));
+
+        jLabelFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/FondoAzul.jpg"))); // NOI18N
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 410));
+>>>>>>> erick/CambioInterfaz
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
     private void jButtonRestaurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRestaurarActionPerformed
+=======
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+>>>>>>> erick/CambioInterfaz
         int logi = login.login(jTextFieldNombreUsuario1.getText(),jPasswordFieldContraseña.getText() );
         switch(logi){
             case 1:
@@ -127,11 +196,20 @@ private Usuario user;
                 JOptionPane.showMessageDialog(this,"Error Inesperado","ERROR",JOptionPane.ERROR_MESSAGE);
                 break;
         }
+<<<<<<< HEAD
     }//GEN-LAST:event_jButtonRestaurarActionPerformed
+=======
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCerrarActionPerformed
+>>>>>>> erick/CambioInterfaz
 
     /**
      * @param args the command line arguments
      */
+<<<<<<< HEAD
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -166,6 +244,11 @@ private Usuario user;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonRestaurar;
+=======
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCerrar;
+>>>>>>> erick/CambioInterfaz
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -176,5 +259,9 @@ private Usuario user;
     private javax.swing.JPasswordField jPasswordFieldContraseña;
     private javax.swing.JTextField jTextFieldNombreUsuario1;
     private javax.swing.JTextField jTextFieldNombreUsuario2;
+<<<<<<< HEAD
+=======
+    private javax.swing.JToggleButton jToggleButton1;
+>>>>>>> erick/CambioInterfaz
     // End of variables declaration//GEN-END:variables
 }

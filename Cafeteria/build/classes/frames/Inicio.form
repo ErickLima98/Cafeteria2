@@ -20,7 +20,11 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+<<<<<<< HEAD
     <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-104,0,0,0,-21"/>
+=======
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-93,0,0,1,-106"/>
+>>>>>>> erick/CambioInterfaz
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
@@ -28,9 +32,20 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JPasswordField" name="jPasswordFieldContrase&#xf1;a">
+<<<<<<< HEAD
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="20" y="280" width="190" height="-1"/>
+=======
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="99" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="140" y="320" width="140" height="-1"/>
+>>>>>>> erick/CambioInterfaz
         </Constraint>
       </Constraints>
     </Component>
@@ -44,11 +59,16 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+<<<<<<< HEAD
           <AbsoluteConstraints x="20" y="250" width="-1" height="-1"/>
+=======
+          <AbsoluteConstraints x="140" y="300" width="-1" height="-1"/>
+>>>>>>> erick/CambioInterfaz
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldUsuario">
+<<<<<<< HEAD
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="20" y="220" width="190" height="-1"/>
@@ -70,6 +90,16 @@
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="160" y="10" width="70" height="50"/>
+=======
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="99" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="140" y="270" width="140" height="-1"/>
+>>>>>>> erick/CambioInterfaz
         </Constraint>
       </Constraints>
     </Component>
@@ -83,7 +113,32 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+<<<<<<< HEAD
           <AbsoluteConstraints x="30" y="190" width="-1" height="-1"/>
+=======
+          <AbsoluteConstraints x="140" y="250" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnCerrar">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Imagen/Cerrar.png"/>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;head&gt;&#xa;&#x9;&lt;style&gt;&#xa;&#x9;&#x9; #contenido{ &#xa;&#x9;&#x9;background: #111111;  /*Se le da un color de fondo*/&#xa;&#x9;&#x9;color: white;&#x9;&#x9;  /*Color a la letra*/&#xa;&#x9;&#x9;}&#xa;&#x9;&lt;/style&gt;&#xa;&lt;/head&gt;&#xa;&lt;body&gt;&#xa;&#x9;&lt;div id=contenido&gt;&#xa;&#x9;&#x9;&lt;h4&gt;Salir&lt;/h4&gt;&#xa;&#x9;&lt;/div&gt;&#xa;&lt;/body&gt;&#xa;&lt;/html&gt;"/>
+        <Property name="borderPainted" type="boolean" value="false"/>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCerrarActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="360" y="0" width="40" height="40"/>
+>>>>>>> erick/CambioInterfaz
         </Constraint>
       </Constraints>
     </Component>
@@ -91,12 +146,20 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+<<<<<<< HEAD
           <Image iconType="3" name="/Imagen/Usuario2.png"/>
+=======
+          <Image iconType="3" name="/Imagen/Usuario_Principal.png"/>
+>>>>>>> erick/CambioInterfaz
         </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+<<<<<<< HEAD
           <AbsoluteConstraints x="40" y="20" width="150" height="170"/>
+=======
+          <AbsoluteConstraints x="130" y="100" width="160" height="160"/>
+>>>>>>> erick/CambioInterfaz
         </Constraint>
       </Constraints>
     </Component>
@@ -113,12 +176,22 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+<<<<<<< HEAD
           <AbsoluteConstraints x="20" y="360" width="190" height="-1"/>
+=======
+          <AbsoluteConstraints x="110" y="380" width="190" height="-1"/>
+>>>>>>> erick/CambioInterfaz
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
+<<<<<<< HEAD
+=======
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="99" red="ff" type="rgb"/>
+        </Property>
+>>>>>>> erick/CambioInterfaz
         <Property name="text" type="java.lang.String" value="Acceder"/>
       </Properties>
       <Events>
@@ -126,7 +199,24 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+<<<<<<< HEAD
           <AbsoluteConstraints x="80" y="320" width="-1" height="-1"/>
+=======
+          <AbsoluteConstraints x="170" y="350" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Cafe">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Imagen/cafe.png"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="10" y="10" width="150" height="90"/>
+>>>>>>> erick/CambioInterfaz
         </Constraint>
       </Constraints>
     </Component>
@@ -134,7 +224,11 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+<<<<<<< HEAD
           <Image iconType="3" name="/Imagen/FondoAzul.jpg"/>
+=======
+          <Image iconType="3" name="/Imagen/blanco.jpg"/>
+>>>>>>> erick/CambioInterfaz
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
@@ -144,7 +238,11 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+<<<<<<< HEAD
           <AbsoluteConstraints x="0" y="0" width="230" height="410"/>
+=======
+          <AbsoluteConstraints x="0" y="0" width="410" height="420"/>
+>>>>>>> erick/CambioInterfaz
         </Constraint>
       </Constraints>
     </Component>

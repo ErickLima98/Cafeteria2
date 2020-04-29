@@ -28,7 +28,7 @@ public class ManejoUsuarios {
         ArrayList<Usuario> usuario = new ArrayList<>();
         try {
             conexion = Conexion.conectar();
-            String consulta = "SELECT us.idUsuario, us.Nombre, ac.Codigo, ac.Nombre FROM usuario us INNER JOIN acceso ac ON us.Acceso_id = ac.id;"; //consulta para la BBDD
+            String consulta = "SELECT us.idUsuario, us.Nombre, ac.Codigo, ac.Nombre FROM usuario us INNER JOIN acceso ac ON us.Acceso_idAcceso = ac.idAcceso;"; //consulta para la BBDD
             PreparedStatement pre = conexion.prepareStatement(consulta);
             ResultSet res = pre.executeQuery();
             while(res.next()){
@@ -60,10 +60,10 @@ public class ManejoUsuarios {
         return acceso;
     }
     
-    public boolean CrearUsuario(String username, String password, int acceso){
+    public boolean CrearUsuario(String username, String clave, int acceso){
         try {
             conexion = Conexion.conectar();
-            String consulta = "SELECT crearUsuario (\""+username+"\",\""+password+"\","+acceso+");"; //consulta para la BBDD
+            String consulta = "SELECT crearUsuario (\""+username+"\",\""+clave+"\","+acceso+");"; //consulta para la BBDD
             PreparedStatement pre = conexion.prepareStatement(consulta);
             ResultSet res = pre.executeQuery();
             int creado = 0;
@@ -80,11 +80,11 @@ public class ManejoUsuarios {
         return false;
     }
     
-    public int ResestPass(String username, String password, int adminID){
+    public int ResestPass(String userName, String clave, int adminId){
         int resul = 0;
         try {
             conexion = Conexion.conectar();
-            String consulta = "SELECT restaurarClave (\""+username+"\",\""+password+"\","+adminID+");"; //consulta para la BBDD
+            String consulta = "SELECT restaurarClave (\""+userName+"\",\""+clave+"\","+adminId+");"; //consulta para la BBDD
             PreparedStatement pre = conexion.prepareStatement(consulta);
             ResultSet res = pre.executeQuery();
             resul = 0;
@@ -110,7 +110,7 @@ public class ManejoUsuarios {
         }else{
              try {
                 conexion = Conexion.conectar();//se conecta a la base de datos
-                String consulta = "UPDATE usuario SET contraseña = md5(\""+newPass+"\") WHERE idUsuario = "+user.getUserId()+";";//consulta para la BBDD
+                String consulta = "UPDATE usuario SET contrasenia = md5(\""+newPass+"\") WHERE idUsuario = "+user.getUserId()+";";//consulta para la BBDD
                 PreparedStatement pre = conexion.prepareStatement(consulta);//se prepara la consulta
                 resul = pre.executeUpdate();//se ejecuta la consulta
                 if(resul>0){
@@ -128,7 +128,7 @@ public class ManejoUsuarios {
     public boolean chageAccess(Usuario user, int acceso){
          try {
              conexion = Conexion.conectar();//se conecta a la base de datos
-             String consulta = "UPDATE usuario SET Accesos_id ="+acceso+" WHERE idUsuario = "+user.getUserId()+";";//consulta para la BBDD
+             String consulta = "UPDATE usuario SET Accesos_idAcceso ="+acceso+" WHERE idUsuario = "+user.getUserId()+";";//consulta para la BBDD
              PreparedStatement pre = conexion.prepareStatement(consulta);//se prepara la consulta
              int res = pre.executeUpdate();//se ejecuta la consulta
              if(res>0){
