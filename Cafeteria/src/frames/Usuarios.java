@@ -28,7 +28,7 @@ public class Usuarios extends javax.swing.JFrame {
     public Usuarios() {
         initComponents();
         this.setLocationRelativeTo(null);
-        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.jpg")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.png")).getImage());
         usuarios = manejador.getUsurios();
         modeloTabla =  (DefaultTableModel) jTable1.getModel();
         accesos = manejador.getAcceso();

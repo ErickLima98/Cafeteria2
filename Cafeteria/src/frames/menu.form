@@ -20,7 +20,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,0,-80,0,0,2,37"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-5,0,0,2,-15"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
@@ -32,7 +32,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Imagen/Grupo-de-Usuarios.png"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;head&gt;&#xa;&#x9;&lt;style&gt;&#xa;&#x9;&#x9; #contenido{ &#xa;&#x9;&#x9;background: #111111;  /*Se le da un color de fondo*/&#xa;&#x9;&#x9;color: white;&#x9;&#x9;  /*Color a la letra*/&#xa;&#x9;&#x9;}&#xa;&#x9;&lt;/style&gt;&#xa;&lt;/head&gt;&#xa;&lt;body&gt;&#xa;&#x9;&lt;div id=contenido&gt;&#xa;&#x9;&#x9;&lt;h4&gt;Usuarios&lt;/h4&gt;&#xa;&#x9;&lt;/div&gt;&#xa;&lt;/body&gt;&#xa;&lt;/html&gt;"/>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;head&gt;&#xa;&#x9;&lt;style&gt;&#xa;&#x9;&#x9; #contenido{ &#xa;&#x9;&#x9;background: #111111;  /*Se le da un color de fondo*/&#xa;&#x9;&#x9;color: white;&#x9;&#x9;  /*Color a la letra*/&#xa;&#x9;&#x9;}&#xa;&#x9;&lt;/style&gt;&#xa;&lt;/head&gt;&#xa;&lt;body&gt;&#xa;&#x9;&lt;div id=contenido&gt;&#xa;&#x9;&#x9;&lt;h4&gt;USUARIOS&lt;/h4&gt;&#xa;&#x9;&lt;/div&gt;&#xa;&lt;/body&gt;&#xa;&lt;/html&gt;"/>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -44,7 +44,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="330" y="100" width="80" height="60"/>
+          <AbsoluteConstraints x="70" y="350" width="110" height="100"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -53,7 +53,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Imagen/Agregar-Usuario.png"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;head&gt;&#xa;&#x9;&lt;style&gt;&#xa;&#x9;&#x9; #contenido{ &#xa;&#x9;&#x9;background: #111111;  /*Se le da un color de fondo*/&#xa;&#x9;&#x9;color: white;&#x9;&#x9;  /*Color a la letra*/&#xa;&#x9;&#x9;}&#xa;&#x9;&lt;/style&gt;&#xa;&lt;/head&gt;&#xa;&lt;body&gt;&#xa;&#x9;&lt;div id=contenido&gt;&#xa;&#x9;&#x9;&lt;h4&gt;A&#xf1;adir Usuario&lt;/h4&gt;&#xa;&#x9;&lt;/div&gt;&#xa;&lt;/body&gt;&#xa;&lt;/html&gt;"/>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;head&gt;&#xa;&#x9;&lt;style&gt;&#xa;&#x9;&#x9; #contenido{ &#xa;&#x9;&#x9;background: #111111;  /*Se le da un color de fondo*/&#xa;&#x9;&#x9;color: white;&#x9;&#x9;  /*Color a la letra*/&#xa;&#x9;&#x9;}&#xa;&#x9;&lt;/style&gt;&#xa;&lt;/head&gt;&#xa;&lt;body&gt;&#xa;&#x9;&lt;div id=contenido&gt;&#xa;&#x9;&#x9;&lt;h4&gt;A&#xd1;ADIR USUARIO&lt;/h4&gt;&#xa;&#x9;&lt;/div&gt;&#xa;&lt;/body&gt;&#xa;&lt;/html&gt;"/>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -65,7 +65,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="230" y="100" width="70" height="60"/>
+          <AbsoluteConstraints x="250" y="350" width="120" height="100"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -74,7 +74,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Imagen/ventas.png"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;head&gt;&#xa;&#x9;&lt;style&gt;&#xa;&#x9;&#x9; #contenido{ &#xa;&#x9;&#x9;background: #111111;  /*Se le da un color de fondo*/&#xa;&#x9;&#x9;color: white;&#x9;&#x9;  /*Color a la letra*/&#xa;&#x9;&#x9;}&#xa;&#x9;&lt;/style&gt;&#xa;&lt;/head&gt;&#xa;&lt;body&gt;&#xa;&#x9;&lt;div id=contenido&gt;&#xa;&#x9;&#x9;&lt;h4&gt;Venta&lt;/h4&gt;&#xa;&#x9;&lt;/div&gt;&#xa;&lt;/body&gt;&#xa;&lt;/html&gt;"/>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;head&gt;&#xa;&#x9;&lt;style&gt;&#xa;&#x9;&#x9; #contenido{ &#xa;&#x9;&#x9;background: #111111;  /*Se le da un color de fondo*/&#xa;&#x9;&#x9;color: white;&#x9;&#x9;  /*Color a la letra*/&#xa;&#x9;&#x9;}&#xa;&#x9;&lt;/style&gt;&#xa;&lt;/head&gt;&#xa;&lt;body&gt;&#xa;&#x9;&lt;div id=contenido&gt;&#xa;&#x9;&#x9;&lt;h4&gt;VENTAS&lt;/h4&gt;&#xa;&#x9;&lt;/div&gt;&#xa;&lt;/body&gt;&#xa;&lt;/html&gt;"/>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -86,7 +86,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="430" y="10" width="80" height="70"/>
+          <AbsoluteConstraints x="430" y="40" width="110" height="100"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -95,7 +95,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Imagen/Inventario.png"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;head&gt;&#xa;&#x9;&lt;style&gt;&#xa;&#x9;&#x9; #contenido{ &#xa;&#x9;&#x9;background: #111111;  /*Se le da un color de fondo*/&#xa;&#x9;&#x9;color: white;&#x9;&#x9;  /*Color a la letra*/&#xa;&#x9;&#x9;}&#xa;&#x9;&lt;/style&gt;&#xa;&lt;/head&gt;&#xa;&lt;body&gt;&#xa;&#x9;&lt;div id=contenido&gt;&#xa;&#x9;&#x9;&lt;h4&gt;Inventario&lt;/h4&gt;&#xa;&#x9;&lt;/div&gt;&#xa;&lt;/body&gt;&#xa;&lt;/html&gt;"/>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;head&gt;&#xa;&#x9;&lt;style&gt;&#xa;&#x9;&#x9; #contenido{ &#xa;&#x9;&#x9;background: #111111;  /*Se le da un color de fondo*/&#xa;&#x9;&#x9;color: white;&#x9;&#x9;  /*Color a la letra*/&#xa;&#x9;&#x9;}&#xa;&#x9;&lt;/style&gt;&#xa;&lt;/head&gt;&#xa;&lt;body&gt;&#xa;&#x9;&lt;div id=contenido&gt;&#xa;&#x9;&#x9;&lt;h4&gt;INVENTARIO&lt;/h4&gt;&#xa;&#x9;&lt;/div&gt;&#xa;&lt;/body&gt;&#xa;&lt;/html&gt;"/>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -107,7 +107,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="330" y="10" width="80" height="70"/>
+          <AbsoluteConstraints x="70" y="40" width="110" height="100"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -116,7 +116,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Imagen/Clientes.png"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;head&gt;&#xa;&#x9;&lt;style&gt;&#xa;&#x9;&#x9; #contenido{ &#xa;&#x9;&#x9;background: #111111;  /*Se le da un color de fondo*/&#xa;&#x9;&#x9;color: white;&#x9;&#x9;  /*Color a la letra*/&#xa;&#x9;&#x9;}&#xa;&#x9;&lt;/style&gt;&#xa;&lt;/head&gt;&#xa;&lt;body&gt;&#xa;&#x9;&lt;div id=contenido&gt;&#xa;&#x9;&#x9;&lt;h4&gt;Cliente&lt;/h4&gt;&#xa;&#x9;&lt;/div&gt;&#xa;&lt;/body&gt;&#xa;&lt;/html&gt;"/>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;head&gt;&#xa;&#x9;&lt;style&gt;&#xa;&#x9;&#x9; #contenido{ &#xa;&#x9;&#x9;background: #111111;  /*Se le da un color de fondo*/&#xa;&#x9;&#x9;color: white;&#x9;&#x9;  /*Color a la letra*/&#xa;&#x9;&#x9;}&#xa;&#x9;&lt;/style&gt;&#xa;&lt;/head&gt;&#xa;&lt;body&gt;&#xa;&#x9;&lt;div id=contenido&gt;&#xa;&#x9;&#x9;&lt;h4&gt;CLIENTES&lt;/h4&gt;&#xa;&#x9;&lt;/div&gt;&#xa;&lt;/body&gt;&#xa;&lt;/html&gt;"/>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -128,7 +128,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="220" y="20" width="70" height="60"/>
+          <AbsoluteConstraints x="70" y="190" width="110" height="100"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -137,7 +137,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Imagen/Login.png"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;head&gt;&#xa;&#x9;&lt;style&gt;&#xa;&#x9;&#x9; #contenido{ &#xa;&#x9;&#x9;background: #111111;  /*Se le da un color de fondo*/&#xa;&#x9;&#x9;color: white;&#x9;&#x9;  /*Color a la letra*/&#xa;&#x9;&#x9;}&#xa;&#x9;&lt;/style&gt;&#xa;&lt;/head&gt;&#xa;&lt;body&gt;&#xa;&#x9;&lt;div id=contenido&gt;&#xa;&#x9;&#x9;&lt;h4&gt;Cerrar Programa&lt;/h4&gt;&#xa;&#x9;&lt;/div&gt;&#xa;&lt;/body&gt;&#xa;&lt;/html&gt;"/>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;head&gt;&#xa;&#x9;&lt;style&gt;&#xa;&#x9;&#x9; #contenido{ &#xa;&#x9;&#x9;background: #111111;  /*Se le da un color de fondo*/&#xa;&#x9;&#x9;color: white;&#x9;&#x9;  /*Color a la letra*/&#xa;&#x9;&#x9;}&#xa;&#x9;&lt;/style&gt;&#xa;&lt;/head&gt;&#xa;&lt;body&gt;&#xa;&#x9;&lt;div id=contenido&gt;&#xa;&#x9;&#x9;&lt;h4&gt;CERRAR SESION&lt;/h4&gt;&#xa;&#x9;&lt;/div&gt;&#xa;&lt;/body&gt;&#xa;&lt;/html&gt;"/>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
@@ -146,7 +146,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="450" y="100" width="40" height="50"/>
+          <AbsoluteConstraints x="430" y="350" width="110" height="100"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -156,11 +156,11 @@
           <Font name="Times New Roman" size="14" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Cerrar Sesi&#xf3;n"/>
+        <Property name="text" type="java.lang.String" value="CERRAR SESI&#xd3;N"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="430" y="150" width="-1" height="-1"/>
+          <AbsoluteConstraints x="430" y="450" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -168,12 +168,179 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Imagen/cafe.jpg"/>
+          <Image iconType="3" name="/Imagen/cafe.png"/>
         </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="40" y="50" width="-1" height="90"/>
+          <AbsoluteConstraints x="590" y="0" width="160" height="90"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonCompras">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Imagen/ventas.png"/>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;head&gt;&#xa;&#x9;&lt;style&gt;&#xa;&#x9;&#x9; #contenido{ &#xa;&#x9;&#x9;background: #111111;  /*Se le da un color de fondo*/&#xa;&#x9;&#x9;color: white;&#x9;&#x9;  /*Color a la letra*/&#xa;&#x9;&#x9;}&#xa;&#x9;&lt;/style&gt;&#xa;&lt;/head&gt;&#xa;&lt;body&gt;&#xa;&#x9;&lt;div id=contenido&gt;&#xa;&#x9;&#x9;&lt;h4&gt;COMPRAS&lt;/h4&gt;&#xa;&#x9;&lt;/div&gt;&#xa;&lt;/body&gt;&#xa;&lt;/html&gt;"/>
+        <Property name="borderPainted" type="boolean" value="false"/>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[98, 74]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonComprasActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="430" y="190" width="110" height="100"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonCierre">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Imagen/Clientes.png"/>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;head&gt;&#xa;&#x9;&lt;style&gt;&#xa;&#x9;&#x9; #contenido{ &#xa;&#x9;&#x9;background: #111111;  /*Se le da un color de fondo*/&#xa;&#x9;&#x9;color: white;&#x9;&#x9;  /*Color a la letra*/&#xa;&#x9;&#x9;}&#xa;&#x9;&lt;/style&gt;&#xa;&lt;/head&gt;&#xa;&lt;body&gt;&#xa;&#x9;&lt;div id=contenido&gt;&#xa;&#x9;&#x9;&lt;h4&gt;CIERRE&lt;/h4&gt;&#xa;&#x9;&lt;/div&gt;&#xa;&lt;/body&gt;&#xa;&lt;/html&gt;"/>
+        <Property name="borderPainted" type="boolean" value="false"/>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[98, 74]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCierreActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="250" y="40" width="110" height="100"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="INVENTARIO"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="80" y="140" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="VENTAS"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="460" y="140" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="CIERRE"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="280" y="140" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel6">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="CLIENTES"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="90" y="290" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel7">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="COMPRAS"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="450" y="290" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonProveedores">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Imagen/ventas.png"/>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;head&gt;&#xa;&#x9;&lt;style&gt;&#xa;&#x9;&#x9; #contenido{ &#xa;&#x9;&#x9;background: #111111;  /*Se le da un color de fondo*/&#xa;&#x9;&#x9;color: white;&#x9;&#x9;  /*Color a la letra*/&#xa;&#x9;&#x9;}&#xa;&#x9;&lt;/style&gt;&#xa;&lt;/head&gt;&#xa;&lt;body&gt;&#xa;&#x9;&lt;div id=contenido&gt;&#xa;&#x9;&#x9;&lt;h4&gt;PROVEEDORES&lt;/h4&gt;&#xa;&#x9;&lt;/div&gt;&#xa;&lt;/body&gt;&#xa;&lt;/html&gt;"/>
+        <Property name="borderPainted" type="boolean" value="false"/>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[98, 74]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonProveedoresActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="250" y="190" width="120" height="100"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel8">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="PROVEEDORES"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="260" y="290" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel9">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="A&#xd1;ADIR USUARIO"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="250" y="450" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel10">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="USUARIOS"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="90" y="450" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -181,12 +348,12 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Imagen/FondoAzul.jpg"/>
+          <Image iconType="3" name="/Imagen/blanco.jpg"/>
         </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="0" width="550" height="180"/>
+          <AbsoluteConstraints x="0" y="0" width="750" height="510"/>
         </Constraint>
       </Constraints>
     </Component>
