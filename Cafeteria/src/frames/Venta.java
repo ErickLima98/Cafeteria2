@@ -26,7 +26,7 @@ public class Venta extends javax.swing.JFrame {
     public Venta() { 
         this.user=user;//Se asigna el usuaario que hizo login
         this.setLocationRelativeTo(null);
-        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.jpg")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.png")).getImage());
         initComponents();      
         this.setLocationRelativeTo(null);
         LlenarcmbCliente();

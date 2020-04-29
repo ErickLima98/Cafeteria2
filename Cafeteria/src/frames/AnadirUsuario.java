@@ -30,7 +30,7 @@ private Usuario user;
     public AnadirUsuario() {
         initComponents();
         this.setLocationRelativeTo(null);
-        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.jpg")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.png")).getImage());
         login=new Login();
         accesos = manejador.getAcceso();
         for (Acceso acceso : accesos) {

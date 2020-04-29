@@ -27,7 +27,7 @@ public class Inventario extends javax.swing.JFrame {
     public Inventario(Usuario user) {
         this.user = user;
         this.setLocationRelativeTo(null);
-        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.jpg")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.png")).getImage());
         initComponents();
         this.setLocationRelativeTo(null);
         mostrardatos("");

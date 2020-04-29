@@ -24,7 +24,7 @@ private Usuario user;
     public RestaurarContraseña() {
         initComponents();
         this.setLocationRelativeTo(null);
-        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.jpg")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.png")).getImage());
         login = new Login();
     }
 

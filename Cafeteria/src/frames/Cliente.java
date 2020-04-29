@@ -27,7 +27,7 @@ public class Cliente extends javax.swing.JFrame {
     public Cliente(Usuario user) {
         initComponents();
         this.setLocationRelativeTo(null);
-        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.jpg")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.png")).getImage());
         this.user=user;//Se asigna el usuaario que hizo login
         MostrarDatos("");  
         jButtonNuevo.setVisible(true);
