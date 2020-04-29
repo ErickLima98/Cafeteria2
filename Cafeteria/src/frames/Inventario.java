@@ -31,6 +31,15 @@ public class Inventario extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         mostrardatos("");
+        jButtonNuevo.setVisible(true);
+        jButtonCancelar.setVisible(false);
+       
+        jTextFieldNombre.setEnabled(false);
+        jTextFieldCantidad.setEnabled(false);
+        jTextFieldPrecio.setEnabled(false);
+        jButtonInsertar.setEnabled(false);
+        jButtonInsertar.setVisible(false);
+        jButtonModificar.setVisible(false);
     }
     
     private int Validad(){
@@ -58,35 +67,38 @@ public class Inventario extends javax.swing.JFrame {
     private void mostrardatos(String valor){
         try {
             Connection cn = Conexion.conectar();
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            String sql="";
-            //creo q aqui la cague bro, ayudame en esta parte
-            /*if (valor.equals(""))
+            DefaultTableModel modelo=new DefaultTableModel()
             {
-                sql="select * from Medicamento where medicamento.Habilitado = 1";
-            }
-            else if (valor.equals("Des"))
-            {
-                sql="select * from Medicamento where medicamento.Habilitado = 0";
-            }
+                @Override
+               public boolean isCellEditable(int fila, int col){
+                  return col==5;
+               }
+            };
+            modelo.addColumn("ID Inventario");
+            modelo.addColumn("Nombre");
+            modelo.addColumn("Cantidad");
+            modelo.addColumn("Precio Q.");
             
-            else
+            jTable1.setModel(modelo);
+            String sql="";
+            if (valor.equals(""))
             {
-                sql="SELECT * FROM Medicamento WHERE (idMedicamento='"+valor+"'  OR Nombre='"+valor+"' OR PrincipioActivo='"+valor+"' )";
-            }*/
-            Object[]tabla = new Object[4];
-            Statement st = cn.createStatement();
-            ResultSet rs =st.executeQuery(sql);
-            while (rs.next())
-            {
-               tabla[0]=rs.getString(1);
-               tabla[1]=rs.getString(2);
-               tabla[2]=rs.getString(3);
-               tabla[3]=rs.getString(4);
-               model.addRow(tabla);
+                sql="SELECT * FROM inventario";
             }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"ERROR" +ex);
+            String []datos=new String [5];
+            
+                Statement st=cn.createStatement();
+                ResultSet rs=st.executeQuery(sql);
+                while(rs.next())
+                {
+                    datos[0]=rs.getString(1);
+                    datos[1]=rs.getString(2);
+                    datos[2]=rs.getString(3);
+                    datos[3]=rs.getString(4);                    
+                    modelo.addRow(datos);
+                }  
+        }catch(SQLException ex){
+          JOptionPane.showMessageDialog(null, "Error" +ex);
         }
     }
 
@@ -113,6 +125,7 @@ public class Inventario extends javax.swing.JFrame {
         jButtonMenu = new javax.swing.JButton();
         jButtonNuevo = new javax.swing.JButton();
         jButtonModificar = new javax.swing.JButton();
+        jButtonMostrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabelFondo = new javax.swing.JLabel();
@@ -135,6 +148,7 @@ public class Inventario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Inventario");
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 140, 160, -1));
 
@@ -199,12 +213,25 @@ public class Inventario extends javax.swing.JFrame {
         jButtonModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Lapiz.png"))); // NOI18N
         jButtonModificar.setBorderPainted(false);
         jButtonModificar.setContentAreaFilled(false);
+        jButtonModificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonModificarActionPerformed(evt);
             }
         });
         getContentPane().add(jButtonModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 170, 30, 40));
+
+        jButtonMostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/refrescar.png"))); // NOI18N
+        jButtonMostrar.setBorderPainted(false);
+        jButtonMostrar.setContentAreaFilled(false);
+        jButtonMostrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonMostrar.setOpaque(false);
+        jButtonMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMostrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 170, 40, 40));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -235,6 +262,7 @@ public class Inventario extends javax.swing.JFrame {
                     pst.setString(1,jTextFieldNombre.getText());
                     pst.setString(2,jTextFieldCantidad.getText());
                     pst.setDouble(3,Double.parseDouble(jTextFieldPrecio.getText()));
+                    //pst.setBoolean(4,true);
                     int a = pst.executeUpdate();
                     if(a>0)
                     {
@@ -243,6 +271,7 @@ public class Inventario extends javax.swing.JFrame {
                         jTextFieldNombre.setText(null);
                         jTextFieldCantidad.setText(null);
                         jTextFieldPrecio.setText(null);
+                        jButtonCancelar.setVisible(false);
                     }
                     else
                     {
@@ -274,7 +303,6 @@ public class Inventario extends javax.swing.JFrame {
 
   
     private void jButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuActionPerformed
-        // TODO add your handling code here:
         menu otro = new menu();
         this.setVisible(false);
         otro.setVisible(true);
@@ -366,6 +394,17 @@ public class Inventario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonModificarActionPerformed
 
+    private void jButtonMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMostrarActionPerformed
+        mostrardatos("");
+        
+        jButtonNuevo.setVisible(true);
+        //radHabili.setSelected(true);
+        jButtonInsertar.setVisible(false);     
+        jButtonModificar.setVisible(false);
+        jTextFieldNombre.setText("");
+        jTextFieldPrecio.setText("");
+    }//GEN-LAST:event_jButtonMostrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -406,6 +445,7 @@ public class Inventario extends javax.swing.JFrame {
     private javax.swing.JButton jButtonInsertar;
     private javax.swing.JButton jButtonMenu;
     private javax.swing.JButton jButtonModificar;
+    private javax.swing.JButton jButtonMostrar;
     private javax.swing.JButton jButtonNuevo;
     private javax.swing.JLabel jLabelCantidad;
     private javax.swing.JLabel jLabelFondo;

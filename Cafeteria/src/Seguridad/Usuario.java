@@ -11,12 +11,12 @@ package Seguridad;
  */
 public class Usuario {
     private int nivelAcceso, userId;    //almacena el codigo de nivel de acceso
-    private String Username, tipoUser;  //almacena el nombre y tipo de usuario
+    private String UserName, tipoUser;  //almacena el nombre y tipo de usuario
     
     public Usuario(int nivelAcceso, int userId, String Usarname, String tipoUser){
         this.nivelAcceso = nivelAcceso;
         this.userId = userId;
-        this.Username = Usarname;
+        this.UserName = Usarname;
         this.tipoUser = tipoUser;
     }
 
@@ -29,7 +29,7 @@ public class Usuario {
     }
 
     public String getUsername() {
-        return Username;
+        return UserName;
     }
 
     public String getTipoUser() {

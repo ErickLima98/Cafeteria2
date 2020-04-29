@@ -5,17 +5,36 @@
  */
 package frames;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import Seguridad.Acceso;
+import Seguridad.ManejoUsuarios;
+import Seguridad.Usuario;
+import javax.swing.ImageIcon;
 /**
  *
  * @author USUARIO
  */
 public class Usuarios extends javax.swing.JFrame {
-
+    private ManejoUsuarios manejador = new ManejoUsuarios();
+    DefaultTableModel modeloTabla;
+    ArrayList<Usuario> usuarios;
+    ArrayList<Acceso> accesos;
     /**
      * Creates new form Usuarios
      */
     public Usuarios() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/Imagen/cafe.png")).getImage());
+        usuarios = manejador.getUsurios();
+        modeloTabla =  (DefaultTableModel) jTable1.getModel();
+        accesos = manejador.getAcceso();
+        for (Acceso acceso : accesos) {
+            jComboBox1.addItem(acceso.toString());
+        }
     }
 
     /**
@@ -28,11 +47,10 @@ public class Usuarios extends javax.swing.JFrame {
     private void initComponents() {
 
         jButtonBuscar = new javax.swing.JButton();
-        jTextFieldBuscar = new javax.swing.JTextField();
         jPasswordFieldContrase = new javax.swing.JPasswordField();
         jLabelContrase = new javax.swing.JLabel();
-        jTextFieldAcceso = new javax.swing.JTextField();
         jLabelAcceso = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jTextFieldNombre = new javax.swing.JTextField();
         jLabelNombre = new javax.swing.JLabel();
         jTextField_ID = new javax.swing.JTextField();
@@ -42,58 +60,80 @@ public class Usuarios extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jButtonMenu = new javax.swing.JButton();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jPasswordField2 = new javax.swing.JPasswordField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Usuarios");
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/search_1.png"))); // NOI18N
         jButtonBuscar.setBorderPainted(false);
         jButtonBuscar.setContentAreaFilled(false);
-        getContentPane().add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 40, 30));
-        getContentPane().add(jTextFieldBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 160, -1));
+        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBuscarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 40, 30));
 
         jPasswordFieldContrase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordFieldContraseActionPerformed(evt);
             }
         });
-        getContentPane().add(jPasswordFieldContrase, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 130, -1));
+        getContentPane().add(jPasswordFieldContrase, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 130, -1));
 
         jLabelContrase.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabelContrase.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelContrase.setText("Constraseña :");
-        getContentPane().add(jLabelContrase, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 100, -1));
-        getContentPane().add(jTextFieldAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 130, -1));
+        getContentPane().add(jLabelContrase, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 100, -1));
 
         jLabelAcceso.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabelAcceso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelAcceso.setText("Acceso :");
-        getContentPane().add(jLabelAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 80, -1));
-        getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 130, -1));
+        getContentPane().add(jLabelAcceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 80, -1));
+
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 130, -1));
+        getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 130, -1));
 
         jLabelNombre.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabelNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelNombre.setText("Nombre :");
-        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 80, -1));
+        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 80, -1));
 
         jTextField_ID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField_IDActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 130, -1));
+        getContentPane().add(jTextField_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 130, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("ID :");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 50, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 50, -1));
 
         jButtonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Save.png"))); // NOI18N
         jButtonGuardar.setBorderPainted(false);
         jButtonGuardar.setContentAreaFilled(false);
-        getContentPane().add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 30, 40));
+        jButtonGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGuardarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 30, 30));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -105,12 +145,12 @@ public class Usuarios extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 530, 250));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 530, 320));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Informacion Usuario");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 190, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 190, -1));
 
         jButtonMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Login2.png"))); // NOI18N
         jButtonMenu.setBorderPainted(false);
@@ -120,11 +160,31 @@ public class Usuarios extends javax.swing.JFrame {
                 jButtonMenuActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 270, 40, 40));
+        getContentPane().add(jButtonMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 330, 40, 40));
+
+        jCheckBox1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jCheckBox1.setSelected(true);
+        jCheckBox1.setText("Cambio de Contraseña");
+        jCheckBox1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jCheckBox1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jCheckBox1.setOpaque(false);
+        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 260, 20));
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 130, -1));
+        getContentPane().add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 130, -1));
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Contraseña :");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 100, -1));
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Repetir Contraseña :");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 140, -1));
 
         jLabelFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/FondoAzul.jpg"))); // NOI18N
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 330));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -143,6 +203,36 @@ public class Usuarios extends javax.swing.JFrame {
         this.setVisible(false);
         otro.setVisible(true);
     }//GEN-LAST:event_jButtonMenuActionPerformed
+
+    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
+
+    }//GEN-LAST:event_jButtonBuscarActionPerformed
+
+    private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
+        if (jTable1.getSelectedRow() != -1){
+            int fila =jTable1.getSelectedRow();
+            if (jCheckBox1.isSelected()){
+                if(jPasswordField1.getText().equals(jPasswordField2.getText())){
+                    boolean resutl = manejador.changePass(usuarios.get(fila), jPasswordFieldContrase.getText(), jPasswordField2.getText());
+                    if (!resutl){
+                        JOptionPane.showMessageDialog(this, "Error no se pudo actualizar contraseñas,  ¿Ingreso una contraseña antigua valida?","ERROR",JOptionPane.ERROR_MESSAGE);//se informa que el usuario no existe
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(this, "Las conraseñas no coinciden","ERROR",JOptionPane.ERROR_MESSAGE);//se informa que el usuario no existe
+                }
+            }
+            int combo = jComboBox1.getSelectedIndex();
+            boolean acc =manejador.chageAccess(usuarios.get(fila), accesos.get(combo).getId());
+            if (!acc) {
+                JOptionPane.showMessageDialog(this, "Error no se pudo actualizar acceso","ERROR",JOptionPane.ERROR_MESSAGE);//se informa que el usuario no existe
+            }
+            JOptionPane.showMessageDialog(this, "Informacion Actualizada","INFORMACION",JOptionPane.INFORMATION_MESSAGE);//se informa que el usuario no existe
+        }
+    }//GEN-LAST:event_jButtonGuardarActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,17 +273,21 @@ public class Usuarios extends javax.swing.JFrame {
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonGuardar;
     private javax.swing.JButton jButtonMenu;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelAcceso;
     private javax.swing.JLabel jLabelContrase;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelNombre;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JPasswordField jPasswordFieldContrase;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextFieldAcceso;
-    private javax.swing.JTextField jTextFieldBuscar;
     private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField jTextField_ID;
     // End of variables declaration//GEN-END:variables

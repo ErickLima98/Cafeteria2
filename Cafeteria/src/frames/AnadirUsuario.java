@@ -41,7 +41,6 @@ private Usuario user;
         jPasswordFieldConstraseña.setText("");
         jPasswordFieldRepetirContra.setText("");
         jTextFieldNombreUsuario.setText("");
-        
     }
 
     /**
@@ -67,6 +66,7 @@ private Usuario user;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Añadir Usuario");
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelNombre.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -89,8 +89,8 @@ private Usuario user;
         getContentPane().add(jComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 180, -1));
 
         jLabelImagenUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelImagenUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Usuario2.png"))); // NOI18N
-        getContentPane().add(jLabelImagenUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 130, 120));
+        jLabelImagenUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Agregar-Usuario-Grande.png"))); // NOI18N
+        getContentPane().add(jLabelImagenUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 130, 120));
 
         jButtonMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Login2.png"))); // NOI18N
         jButtonMenu.setBorderPainted(false);
@@ -126,8 +126,6 @@ private Usuario user;
     }//GEN-LAST:event_jButtonMenuActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
-
         if(jPasswordFieldConstraseña.getText()!=jPasswordFieldRepetirContra.getText())
         {
             if(!jTextFieldNombreUsuario.getText().trim().equals(""))
@@ -136,13 +134,10 @@ private Usuario user;
                 boolean user = manejador.CrearUsuario(jTextFieldNombreUsuario.getText().trim(), jPasswordFieldConstraseña.getText(), accesos.get(combo).getId());
                 JOptionPane.showMessageDialog(this, "El usuario " + jTextFieldNombreUsuario.getText().trim() + " fue creado","INFORMACION",JOptionPane.INFORMATION_MESSAGE);
                 limpiar();
-            }
-            else
-            {
+            }else{
                 JOptionPane.showMessageDialog(this, "Ingrese un Nombre de Usuario","ERROR",JOptionPane.ERROR_MESSAGE);
             }
-        }else
-        {
+        }else{
             JOptionPane.showMessageDialog(this, "Las contraseñas no son iguales","ERROR",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jToggleButton1ActionPerformed
